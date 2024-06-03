@@ -7,7 +7,7 @@ exports.getCaharacters = asyncHandler(async (req, res, next) => {
 
     const uid = cache.get("current id");
     console.log("Fetching characters for uid " + uid);
-    const starRailUser = cache.get(700113896);
+    const starRailUser = cache.get(uid);
 
     const supportCharacters = starRailUser.supportCharacters;
     const starfaringCompanions = starRailUser.starfaringCompanions;
