@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "node-cache": "^5.1.2",
+    "socket.io": "^4.7.5",
+    "starrail.js": "^1.7.0"
+  },
+  "name": "enkanet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.14.0"
+  }
+}
