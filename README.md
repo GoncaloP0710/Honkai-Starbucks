@@ -1,1 +1,1 @@
-Hi
+To run the main server go to the folder: "Back-End/Honkai-StarBucks_MainServer" and execute: "node app.js"
