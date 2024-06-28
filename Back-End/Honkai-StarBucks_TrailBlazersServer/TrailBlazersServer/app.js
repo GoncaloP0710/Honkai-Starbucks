@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
+const { StarRail } = require('starrail.js');
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
