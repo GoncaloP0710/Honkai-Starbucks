@@ -8,6 +8,22 @@ mongoose.set("strictQuery", false);
 const con_string = "mongodb+srv://goncalopinto07102003:Y24OQFKGUftnYECB@cluster0.wxmwzsu.mongodb.net/TrailBlazerDB?retryWrites=true&w=majority&appName=Cluster0"
 mongoose.connect(con_string);
 
+const client = new StarRail();
+client.cachedAssetsManager.cacheDirectoryPath = "node_modules/starrail.js/cache";
+client.cachedAssetsManager.cacheDirectorySetup();
+
+client.cachedAssetsManager.activateAutoCacheUpdater({
+    instant: true, // Run the first update check immediately
+    timeout: 60 * 60 * 1000, // 1 hour interval
+    onUpdateStart: async () => {
+        console.log("Updating Star Rail Data...");
+    },
+    onUpdateEnd: async () => {
+        client.cachedAssetsManager.refreshAllData(); // Refresh memory
+        console.log("Updating Completed!");
+    }
+});
+
 mongoose.connection.on('connected', async function() {
     console.log('Successfully connected to MongoDB');
 });

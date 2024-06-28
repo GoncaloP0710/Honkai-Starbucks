@@ -1,13 +1,13 @@
 const asyncHandler = require("express-async-handler");
 const { StarRail } = require("starrail.js");
-const cache = require('../cache.js'); // Import shared cache
 const client = new StarRail();
 
-exports.getCaharacters = asyncHandler(async (req, res, next) => {
+exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
 
-    const uid = cache.get("current id");
-    console.log("Fetching characters for uid " + uid);
-    const starRailUser = cache.get(uid);
+    const uid = req.params.uid;
+
+    // Fetch user data based on UID
+    const starRailUser = await client.fetchUser(uid);
 
     const supportCharacters = starRailUser.supportCharacters;
     const starfaringCompanions = starRailUser.starfaringCompanions;
