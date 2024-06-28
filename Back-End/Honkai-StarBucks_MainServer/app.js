@@ -3,6 +3,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 
 const app = express();
+app.use(express.json());
 const { StarRail } = require('starrail.js');
 const server = http.createServer(app);  // Create the server
 const io = socketIo(server);
