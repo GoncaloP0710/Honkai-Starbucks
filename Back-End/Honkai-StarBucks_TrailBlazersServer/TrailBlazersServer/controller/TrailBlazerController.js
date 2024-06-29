@@ -33,23 +33,19 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         const eidolons = character.eidolons;
         console.log("number of eidolons: " + eidolons);
 
-        // Create a new object with only the properties you need
-        const simplifiedCharacterData = {
-            name: name.getAsFormattedText().text,
-            relics: character.relics.map(relic => ({
-                level: relic.level,
-                name: relic.relicData.name.getAsFormattedText(),
-                mainStat: {
-                    stat: relic.mainStat.mainStatData.statProperty.nameRelic.getAsFormattedText(),
-                    value: relic.mainStat.value
-                },
-                subStats: relic.subStats.map((subStat, index) => ({
-                    stat: subStat.statProperty.nameRelic.getAsFormattedText(),
-                    value: relic.subStats[index].value
-                }))
-            })),
-
-        };
+        const relicsInfo = character.relics.map(relic => ({
+            level: relic.level,
+            name: relic.relicData.name.getAsFormattedText(),
+            mainStat: {
+                stat: relic.mainStat.mainStatData.statProperty.nameRelic.getAsFormattedText(),
+                value: relic.mainStat.value
+            },
+            subStats: relic.subStats.map((subStat, index) => ({
+                stat: subStat.statProperty.nameRelic.getAsFormattedText(),
+                value: relic.subStats[index].value
+            }))
+        }))
+        console.log(relicsInfo);
     }
 
     // Respond with characters info
