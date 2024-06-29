@@ -32,8 +32,13 @@ mongoose.connection.on('error', function(err) {
     console.error('Failed to connect to MongoDB:', err);
 });
 
+const teamRouter = require('./routes/Team');
+app.use('/team', teamRouter);
+const trailBlazerRouter = require('./routes/TrailBlazer');
+app.use('/trailBlazer', trailBlazerRouter);
+
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
