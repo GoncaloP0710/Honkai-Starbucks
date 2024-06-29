@@ -2,6 +2,8 @@ const asyncHandler = require("express-async-handler");
 const { StarRail } = require("starrail.js");
 const client = new StarRail();
 
+const { sumStats } = require('../node_modules/starrail.js/dist/models/character/CharacterStats');
+
 exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     console.log("Getting characters data...");
 
@@ -33,9 +35,16 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         const eidolons = character.eidolons;
         console.log("number of eidolons: " + eidolons);
 
+        const lightConeInfo = {
+            name: character.lightCone,
+            level: character.lightCone.level,
+            superimposition: character.lightCone.superimposition.level
+        }
+        //console.log(lightConeInfo);
+
         const relicsInfo = character.relics.map(relic => ({
             level: relic.level,
-            name: relic.relicData.name.getAsFormattedText(),
+            set: relic.relicData.name.getAsFormattedText(),
             mainStat: {
                 stat: relic.mainStat.mainStatData.statProperty.nameRelic.getAsFormattedText(),
                 value: relic.mainStat.value
@@ -45,7 +54,13 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
                 value: relic.subStats[index].value
             }))
         }))
-        console.log(relicsInfo);
+        //console.log(relicsInfo);
+
+        const stats = sumStats(character.stats.overallStats.getAll(), client);
+        console.log(stats);
+
+        // TODO: Remove after testing
+        break;
     }
 
     // Respond with characters info
