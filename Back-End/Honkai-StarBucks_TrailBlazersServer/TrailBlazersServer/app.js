@@ -38,7 +38,7 @@ const trailBlazerRouter = require('./routes/TrailBlazer');
 app.use('/trailBlazer', trailBlazerRouter);
 
 // Start the server
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
