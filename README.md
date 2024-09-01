@@ -3,6 +3,7 @@
 ## To Do
 
 Tratar de todos os problemas com nulls... Se um char n tem lc por exemplo
+Adicionar os campos dos multipliers de todos os sets... Ex: damage reduction
 
 ## Overview
 

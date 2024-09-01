@@ -34,13 +34,12 @@ const trailblazerSchema = new Schema({
     finalStats: {
         FinalHP: { type: Number, required: true },
         FinalAttack: { type: Number, required: true },
-        FinalDefense: { type: Number, required: true },
+        FinalDefence: { type: Number, required: true },
         FinalSpeed: { type: Number, required: true },
         FinalSPRatio: { type: Number, required: true },
         MaxSP: { type: Number, required: true },
         CriticalChanceBase: { type: Number, required: true },
         CriticalDamageBase: { type: Number, required: true },
-        SPRatioBase: { type: Number, required: true },
         BreakDamageAddedRatioBase: { type: Number, required: true },
         HealRatioBase: { type: Number, required: true },
         StatusProbabilityBase: { type: Number, required: true },
@@ -56,20 +55,20 @@ const trailblazerSchema = new Schema({
     baseStats: {
         BaseHP: { type: Number, required: true },
         BaseAttack: { type: Number, required: true },
-        BaseDefense: { type: Number, required: true },
-        BaseSpeed: { type: Number, required: true },
-        SPRatioBase: { type: Number, required: true },
+        BaseDefence: { type: Number, required: true },
+        BaseSpeed: { type: Number, required: true },    
     },
     addedStats: {
         HPDelta: { type: Number, required: true },
         AttackDelta: { type: Number, required: true },
-        DefenseDelta: { type: Number, required: true },
+        DefenceDelta: { type: Number, required: true },
         SpeedDelta: { type: Number, required: true },
     },
     multipliersStats: {
         HPAddedRatio: { type: Number, required: true },
         AttackAddedRatio: { type: Number, required: true },
-        DefenseAddedRatio: { type: Number, required: true },
+        DefenceAddedRatio: { type: Number, required: true },
+        SpeedAddedRatio: { type: Number, required: true },
     },
 });
 

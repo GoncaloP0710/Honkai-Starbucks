@@ -63,16 +63,13 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         const transformedStats = transformStats(stats);
         // console.log(transformedStats);
 
-        transformedStats.forEach(stat => {
-            const { type, isPercent, value } = stat;
-            if (type.startsWith('Base')) {
-              baseStats[type] = value;
-            } else if (type.endsWith('Delta')) {
-              addedStats[type] = value;
-            } else if (isPercent) {
-              multipliersStats[type] = value;
-            }
-        });
+        const { baseStats, addedStats, multipliersStats } = getNonFinalStats(transformedStats);
+        console.log(baseStats);
+        console.log(addedStats);
+        console.log(multipliersStats);
+
+        const finalStats = getFinalStats(transformedStats, baseStats, addedStats, multipliersStats);
+        console.log(finalStats);
 
         console.log("====================================");
     }
@@ -108,4 +105,80 @@ function transformStats(stats) {
 
 function calculateEndStat(base, delta, addedRatio) {
     return base + delta + (base * addedRatio);
+}
+
+function getNonFinalStats(transformedStats) {
+    const baseStats = {
+        BaseHP: -1,
+        BaseAttack: -1,
+        BaseDefence: -1,
+        BaseSpeed: -1,
+    };
+
+    const addedStats = {
+        HPDelta: 0,
+        AttackDelta: 0,
+        DefenceDelta: 0,
+        SpeedDelta: 0,
+    };
+
+    const multipliersStats = {
+        HPAddedRatio: 0,
+        AttackAddedRatio: 0,
+        DefenceAddedRatio: 0,
+        SpeedAddedRatio: 0,
+    };
+
+    transformedStats.forEach(stat => {
+        const { type, isPercent, value } = stat;
+        if (type.startsWith('Base')) {
+            baseStats[type] = value ;
+        } else if (type.endsWith('Delta')) {
+            addedStats[type] = value ;
+        } else if (multipliersStats.hasOwnProperty(type)) {
+            multipliersStats[type] = value ;
+        }
+    });
+
+    return { baseStats, addedStats, multipliersStats };
+}
+
+function getFinalStats(transformedStats, baseStats, addedStats, multipliersStats) {
+    const finalStats = {
+        FinalHP: -1,
+        FinalAttack: -1,
+        FinalDefence: -1,
+        FinalSpeed: -1,
+        FinalSPRatio: -1,
+        MaxSP: -1,
+        CriticalChanceBase: -1,
+        CriticalDamageBase: -1,
+        BreakDamageAddedRatioBase: 0,
+        HealRatioBase: 0,
+        StatusProbabilityBase: 0,
+        StatusResistanceBase: 0,
+        ThunderAddedRatio: 0,
+        FireAddedRatio: 0,
+        IceAddedRatio: 0,
+        WindAddedRatio: 0,
+        QuantomAddedRatio: 0,
+        PhysicalAddedRatio: 0,
+        ImaginaryAddedRatio: 0,
+    };
+
+    transformedStats.forEach(stat => {
+        const { type, isPercent, value } = stat;
+        if (finalStats.hasOwnProperty(type)) {
+            finalStats[type] = value;
+        } else if (type === 'SPRatioBase') {
+            finalStats.FinalSPRatio = value;
+        }
+    });
+
+    finalStats.FinalHP = calculateEndStat(baseStats.BaseHP, addedStats.HPDelta, multipliersStats.HPAddedRatio);
+    finalStats.FinalAttack = calculateEndStat(baseStats.BaseAttack, addedStats.AttackDelta, multipliersStats.AttackAddedRatio);
+    finalStats.FinalDefence = calculateEndStat(baseStats.BaseDefence, addedStats.DefenceDelta, multipliersStats.DefenceAddedRatio);
+    finalStats.FinalSpeed = calculateEndStat(baseStats.BaseSpeed, addedStats.SpeedDelta, multipliersStats.SpeedAddedRatio);
+
+    return finalStats;
 }
