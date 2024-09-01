@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const { StarRail } = require("starrail.js");
 const client = new StarRail();
+const TrailBlazer = require("../models/TrailBlazer");
 
 const { sumStats } = require('../node_modules/starrail.js/dist/models/character/CharacterStats');
 
@@ -14,6 +15,8 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     const starRailUser = await client.fetchUser(uid);
     console.log("data fetched!");
 
+    debugger; // Execution will pause here if running in a debugger
+
     const supportCharacters = starRailUser.supportCharacters;
     const starfaringCompanions = starRailUser.starfaringCompanions;
     const allCharacters = [...supportCharacters, ...starfaringCompanions];
@@ -22,8 +25,8 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         // Fetch character data based on character ID
         const characterData = character.characterData;
         
-        const name = characterData.name;
-        console.log(name.getAsFormattedText());
+        const name = characterData.name.toString();
+        console.log(name);
 
         const type = characterData.combatType.id;
         console.log(type);
@@ -36,11 +39,11 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         console.log("number of eidolons: " + eidolons);
 
         const lightConeInfo = {
-            name: character.lightCone,
+            name: character.lightCone.lightConeData.name.toString(),
             level: character.lightCone.level,
             superimposition: character.lightCone.superimposition.level
         }
-        //console.log(lightConeInfo);
+        console.log(lightConeInfo.name + " " + lightConeInfo.level + " " + lightConeInfo.superimposition);
 
         const relicsInfo = character.relics.map(relic => ({
             level: relic.level,
@@ -54,19 +57,31 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
                 value: relic.subStats[index].value
             }))
         }))
-        //console.log(relicsInfo);
+        // console.log(relicsInfo);
 
         const stats = sumStats(character.stats.overallStats.getAll(), client);
-        console.log(stats);
+        const transformedStats = transformStats(stats);
+        // console.log(transformedStats);
 
-        // TODO: Remove after testing
-        break;
+        transformedStats.forEach(stat => {
+            const { type, isPercent, value } = stat;
+            if (type.startsWith('Base')) {
+              baseStats[type] = value;
+            } else if (type.endsWith('Delta')) {
+              addedStats[type] = value;
+            } else if (isPercent) {
+              multipliersStats[type] = value;
+            }
+        });
+
+        console.log("====================================");
     }
 
     // Respond with characters info
     res.json();
 });
 
+// Mapping of the API´s name to pathName
 const pathMap = {
     "Warrior": "Destruction",
     "Rogue": "The Hunt",
@@ -80,4 +95,17 @@ const pathMap = {
 
 function getPathCounterpart(pathId) {
     return pathMap[pathId] || "Invalid pathId";
+}
+
+function transformStats(stats) {
+    // Convert the object values to an array before mapping
+    return Object.values(stats).map(stat => ({
+        type: stat.type,
+        isPercent: stat.isPercent,
+        value: stat.value
+    }));
+}
+
+function calculateEndStat(base, delta, addedRatio) {
+    return base + delta + (base * addedRatio);
 }

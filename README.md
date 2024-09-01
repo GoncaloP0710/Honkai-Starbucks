@@ -1,5 +1,9 @@
 # Honkai-StarBucks Project
 
+## To Do
+
+Tratar de todos os problemas com nulls... Se um char n tem lc por exemplo
+
 ## Overview
 
 This project consists of several components for managing and simulating battles in the Honkai-StarBucks universe. It includes back-end servers for handling different functionalities and a front-end client built with Angular.
@@ -18,17 +22,6 @@ This server handles user authentication and login functionalities.
 
 This is the main server that handles various core functionalities.
 
-#### Directory Structure
-
-- `controller/`: Contains controllers for different modules.
-- `models/`: Contains the data models.
-- `routes/`: Defines the API routes.
-- `app.js`: The main application file.
-- `cache.js`: Manages caching operations.
-- `trash.js`: Temporary or deprecated code (consider removing or refactoring).
-- `package.json`: Node.js project metadata.
-- `package-lock.json`: Lockfile for npm dependencies.
-
 ## BattleSimulator_AI
 
 This directory contains the AI logic for simulating battles.
@@ -41,25 +34,4 @@ The front-end client built with Angular.
 
 ## How to run the project
 
-### Back-End
-
-#### BattleServer
-```bash
-cd Back-End/Honkai-StarBucks_BattleServer/BattleServer
-node app.js
-```
-#### LoginServer
-```bash
-cd Back-End/Honkai-StarBucks_LoginServer/LoginServer
-node app.js
-```
-#### MainServer
-```bash
-cd Back-End/Honkai-StarBucks_MainServer
-node app.js
-```
-### Front-End
-```bash
-cd Front-End/Honkai-StarBucks_Client
-ng serve
-```
+Execute the file `start_servers.bat` and make sure to install all the necessary dependencies before running the servers.
