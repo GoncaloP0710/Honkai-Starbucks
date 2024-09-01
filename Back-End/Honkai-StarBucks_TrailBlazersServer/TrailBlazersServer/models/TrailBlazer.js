@@ -10,9 +10,9 @@ const trailblazerSchema = new Schema({
     type: { type: String, required: true },
     path: { type: String, required: true },
     level: { type: Number, required: true },
+    eidolon: { type: Number, required: true },
 
     // Equipment
-    eidolon: { type: Number, required: true },
     lightCone: {
         name: { type: String, required: true },
         level: { type: Number, required: true },

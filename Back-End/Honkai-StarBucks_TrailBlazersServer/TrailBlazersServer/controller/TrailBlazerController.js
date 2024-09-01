@@ -15,8 +15,7 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     const starRailUser = await client.fetchUser(uid);
     console.log("data fetched!");
 
-    debugger; // Execution will pause here if running in a debugger
-
+    const nickname = starRailUser.nickname;
     const supportCharacters = starRailUser.supportCharacters;
     const starfaringCompanions = starRailUser.starfaringCompanions;
     const allCharacters = [...supportCharacters, ...starfaringCompanions];
@@ -35,6 +34,9 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         const pathName = getPathCounterpart(pathId);
         console.log(pathName);
 
+        const level = character.level;
+        console.log("level: " + level);
+
         const eidolons = character.eidolons;
         console.log("number of eidolons: " + eidolons);
 
@@ -46,14 +48,14 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         console.log(lightConeInfo.name + " " + lightConeInfo.level + " " + lightConeInfo.superimposition);
 
         const relicsInfo = character.relics.map(relic => ({
+            set: relic.relicData.name.getAsFormattedText().text,
             level: relic.level,
-            set: relic.relicData.name.getAsFormattedText(),
             mainStat: {
-                stat: relic.mainStat.mainStatData.statProperty.nameRelic.getAsFormattedText(),
+                name: relic.mainStat.mainStatData.statProperty.nameRelic.getAsFormattedText().text,
                 value: relic.mainStat.value
             },
             subStats: relic.subStats.map((subStat, index) => ({
-                stat: subStat.statProperty.nameRelic.getAsFormattedText(),
+                name: subStat.statProperty.nameRelic.getAsFormattedText().text,
                 value: relic.subStats[index].value
             }))
         }))
@@ -71,7 +73,10 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         const finalStats = getFinalStats(transformedStats, baseStats, addedStats, multipliersStats);
         console.log(finalStats);
 
+        await createTrailBlazer(nickname, name, type, pathName, level, eidolons, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats);
+
         console.log("====================================");
+        break;
     }
 
     // Respond with characters info
@@ -181,4 +186,30 @@ function getFinalStats(transformedStats, baseStats, addedStats, multipliersStats
     finalStats.FinalSpeed = calculateEndStat(baseStats.BaseSpeed, addedStats.SpeedDelta, multipliersStats.SpeedAddedRatio);
 
     return finalStats;
+}
+
+async function createTrailBlazer(nickname, name, type, pathName, level, eidolons, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats) {
+    const trailblazerData = {
+        username: nickname,
+        name: name,
+        type: type,
+        path: pathName,
+        level: level,
+        eidolon: eidolons,
+        lightCone: lightConeInfo,
+        relics: relicsInfo,
+        finalStats: finalStats,
+        baseStats: baseStats,
+        addedStats: addedStats,
+        multipliersStats: multipliersStats,
+    };
+    
+    const trailblazer = new TrailBlazer(trailblazerData);
+    
+    try {
+        await trailblazer.save();
+        console.log('TrailBlazer saved successfully');
+    } catch (err) {
+        console.error('Error saving TrailBlazer:', err);
+    }
 }
