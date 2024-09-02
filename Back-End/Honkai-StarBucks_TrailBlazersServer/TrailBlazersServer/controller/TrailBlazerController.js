@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const { StarRail } = require("starrail.js");
+const fs = require('fs');
 const client = new StarRail();
 const TrailBlazer = require("../models/TrailBlazer");
 
@@ -23,63 +24,25 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     for (const character of allCharacters) {
         // Fetch character data based on character ID
         const characterData = character.characterData;
-        
         const name = characterData.name.toString();
-        console.log(name);
-
         const type = characterData.combatType.id;
-        console.log(type);
-
         const pathId = characterData.path.id;
         const pathName = getPathCounterpart(pathId);
-        console.log(pathName);
-
         const level = character.level;
-        console.log("level: " + level);
-
         const eidolons = character.eidolons;
-        console.log("number of eidolons: " + eidolons);
+        const tracesLevel = await getTracesLevel(character)
 
-        const lightConeInfo = {
-            name: character.lightCone.lightConeData.name.toString(),
-            level: character.lightCone.level,
-            superimposition: character.lightCone.superimposition.level
-        }
-        console.log(lightConeInfo.name + " " + lightConeInfo.level + " " + lightConeInfo.superimposition);
-
-        const relicsInfo = character.relics.map(relic => ({
-            set: relic.relicData.name.getAsFormattedText().text,
-            level: relic.level,
-            mainStat: {
-                name: relic.mainStat.mainStatData.statProperty.nameRelic.getAsFormattedText().text,
-                value: relic.mainStat.value
-            },
-            subStats: relic.subStats.map((subStat, index) => ({
-                name: subStat.statProperty.nameRelic.getAsFormattedText().text,
-                value: relic.subStats[index].value
-            }))
-        }))
-        // console.log(relicsInfo);
+        const lightConeInfo = getLcInfo(character);
+        const relicsInfo = getRelicsInfo(character);
 
         const stats = sumStats(character.stats.overallStats.getAll(), client);
         const transformedStats = transformStats(stats);
-        // console.log(transformedStats);
-
         const { baseStats, addedStats, multipliersStats } = getNonFinalStats(transformedStats);
-        console.log(baseStats);
-        console.log(addedStats);
-        console.log(multipliersStats);
-
         const finalStats = getFinalStats(transformedStats, baseStats, addedStats, multipliersStats);
-        console.log(finalStats);
 
-        await createTrailBlazer(nickname, name, type, pathName, level, eidolons, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats);
-
-        console.log("====================================");
-        break;
+        await createTrailBlazer(nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats);
     }
 
-    // Respond with characters info
     res.json();
 });
 
@@ -97,6 +60,33 @@ const pathMap = {
 
 function getPathCounterpart(pathId) {
     return pathMap[pathId] || "Invalid pathId";
+}
+
+function getLcInfo(character) {
+    if (character.lightCone==null)
+        return null;
+    const lightConeInfo = {
+        name: character.lightCone.lightConeData.name.toString(),
+        level: character.lightCone.level,
+        superimposition: character.lightCone.superimposition.level
+    }
+    return lightConeInfo;
+}
+
+function getRelicsInfo(character) {
+    const relicsInfo = character.relics.map(relic => ({
+        set: relic.relicData.name.getAsFormattedText().text,
+        level: relic.level,
+        mainStat: {
+            name: relic.mainStat.mainStatData.statProperty.nameRelic.getAsFormattedText().text,
+            value: relic.mainStat.value
+        },
+        subStats: relic.subStats.map((subStat, index) => ({
+            name: subStat.statProperty.nameRelic.getAsFormattedText().text,
+            value: relic.subStats[index].value
+        }))
+    }))
+    return relicsInfo;
 }
 
 function transformStats(stats) {
@@ -188,7 +178,7 @@ function getFinalStats(transformedStats, baseStats, addedStats, multipliersStats
     return finalStats;
 }
 
-async function createTrailBlazer(nickname, name, type, pathName, level, eidolons, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats) {
+async function createTrailBlazer(nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats) {
     const trailblazerData = {
         username: nickname,
         name: name,
@@ -196,6 +186,7 @@ async function createTrailBlazer(nickname, name, type, pathName, level, eidolons
         path: pathName,
         level: level,
         eidolon: eidolons,
+        tracesLevel: tracesLevel,
         lightCone: lightConeInfo,
         relics: relicsInfo,
         finalStats: finalStats,
@@ -211,5 +202,61 @@ async function createTrailBlazer(nickname, name, type, pathName, level, eidolons
         console.log('TrailBlazer saved successfully');
     } catch (err) {
         console.error('Error saving TrailBlazer:', err);
+    }
+}
+
+async function getTracesLevel(character) {
+    const LeveledSkillTreeNode = character.skillTreeNodes;
+    const tracesLevelArray = [];
+    const bonusAbilityLevelArray = [0,0,0];
+
+    // Iterate through the array and print the level number
+    LeveledSkillTreeNode.forEach(node => {
+        if (node._data.PointType==2)
+            tracesLevelArray.push(node.level.value);
+        if (node._data.PointType==3)
+            if (node._data.Anchor == "Point06")
+                bonusAbilityLevelArray[0] = 1;
+            if (node._data.Anchor == "Point07")
+                bonusAbilityLevelArray[1] = 1;
+            if (node._data.Anchor == "Point08")
+                bonusAbilityLevelArray[2] = 1;
+            
+    });
+
+    const tracesLevel = {
+        basic: tracesLevelArray.at(0),
+        skill: tracesLevelArray.at(1),
+        ultimate: tracesLevelArray.at(2),
+        talent: tracesLevelArray.at(3),
+        bonusAbility1: bonusAbilityLevelArray[0],
+        bonusAbility2: bonusAbilityLevelArray[1],
+        bonusAbility3: bonusAbilityLevelArray[2],
+    }
+
+    return tracesLevel;
+}
+
+// Testado minimamente
+function objectToJsonFile(object, filePath) {
+    try {
+        const jsonString = JSON.stringify(object, null, 2); // Convert object to JSON string with indentation
+        fs.writeFileSync(filePath, jsonString, 'utf8'); // Write JSON string to file
+        console.log(`Object successfully written to ${filePath}`);
+    } catch (error) {
+        console.error(`Error writing object to JSON file: ${error}`);
+    }
+}
+
+// Nao testado
+function jsonFileToObject(filePath) {
+    try {
+        const jsonString = fs.readFileSync(filePath, 'utf8'); // Read JSON file content
+        const object = JSON.parse(jsonString); // Parse JSON string to object
+        console.log(`JSON file successfully read from ${filePath}`);
+        return object;
+    } catch (error) {
+        console.error(`Error reading JSON file: ${error}`);
+        return null;
     }
 }

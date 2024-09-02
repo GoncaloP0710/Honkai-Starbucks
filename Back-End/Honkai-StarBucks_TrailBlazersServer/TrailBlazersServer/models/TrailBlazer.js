@@ -11,6 +11,15 @@ const trailblazerSchema = new Schema({
     path: { type: String, required: true },
     level: { type: Number, required: true },
     eidolon: { type: Number, required: true },
+    tracesLevel: {
+        basic: { type: Number, required: true },
+        skill: { type: Number, required: true },
+        ultimate: { type: Number, required: true },
+        talent: { type: Number, required: true },
+        bonusAbility1: { type: Number, required: true },
+        bonusAbility2: { type: Number, required: true },
+        bonusAbility3: { type: Number, required: true },
+    },
 
     // Equipment
     lightCone: {
