@@ -6,6 +6,8 @@ const loginRouter = require('./routes/Login');
 app.use('/login', loginRouter);
 const characterRouter = require('./routes/Character');
 app.use('/characters', characterRouter);
+const teamRouter = require('./routes/Team');
+app.use('/team', teamRouter);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
