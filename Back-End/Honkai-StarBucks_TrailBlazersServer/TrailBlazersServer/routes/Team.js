@@ -2,6 +2,6 @@ const express = require('express');
 const router = express.Router();
 const teamController = require('../controller/TeamChontroller');
 
-router.get('/createTeam/', teamController.createTeam);
+router.post('/createTeam', teamController.createTeam);
 
 module.exports = router;

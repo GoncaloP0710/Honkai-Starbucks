@@ -9,7 +9,7 @@ exports.createTeam = async (req, res) => {
     const { team } = req.body;
 
     // Validate the input
-    if (!Array.isArray(team) || team.length > 4 || !team.every(num => typeof num === 'number')) {
+    if (!Array.isArray(team) || team.length > 4 || team.length < 1) {
         return res.status(400).json({ error: 'Input must be an array of up to 4 numbers.' });
     }
 
