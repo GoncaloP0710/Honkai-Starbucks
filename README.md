@@ -4,6 +4,12 @@
 
 Tratar de todos os problemas com nulls... Se um char n tem lc por exemplo
 Adicionar os campos dos multipliers de todos os sets... Ex: damage reduction
+Endless game mode...
+Co-op mode...
+Remover email do login
+Create inimigo custom...
+
+Maneira de criar custoom MoC: reutiliazr a maneira dos moc default mas em vez de usar o id usar o id da db
 
 ## Overview
 

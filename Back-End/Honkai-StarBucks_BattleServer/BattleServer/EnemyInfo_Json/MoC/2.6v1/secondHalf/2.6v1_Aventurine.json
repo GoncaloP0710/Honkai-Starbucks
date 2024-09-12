@@ -1,0 +1,42 @@
+{
+    "name": "Ten Stonehearts: Aventurine of Stratagems",
+    "enemyId": 8034010,
+    "level": 95,
+    "health": 1089372,
+    "phases": 2,
+    "defense": 1000,
+    "speed": 158.40,
+    "paths": [
+      {
+        "name": "Wind",
+        "percentage": 0.2
+      },
+      {
+        "name": "Physical",
+        "percentage": 0
+      },
+      {
+        "name": "Fire",
+        "percentage": 0.2
+      },
+      {
+        "name": "Lightning",
+        "percentage": 0.4
+      },
+      {
+        "name": "Ice",
+        "percentage": 0.2
+      },
+      {
+        "name": "Quantum ",
+        "percentage": 0.2
+      },
+      {
+        "name": "Imaginary",
+        "percentage": 0
+      }
+    ],
+    "statusResistance": 40.0,
+    "statusProbability": 36.0,
+    "imagePath": "Assets/Images/Monster_8034010.webp"
+  }

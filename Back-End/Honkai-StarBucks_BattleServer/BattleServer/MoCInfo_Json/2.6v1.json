@@ -1,0 +1,63 @@
+{
+    "MOC": "2.6v1",
+    "name": "The Big Sleep",
+    "imagePath": "",
+    "buff": "After every attack launched by an ally, apply 1 stack of Memory Imprint to all allies. Allies in the Memory Imprint state deal 8.0% more DMG. This effect stacks up to 6.0 time(s). When Memory Imprint reaches max stacks, immediately deals 1 instance of DMG to all enemies based on a certain percentage of their respective Max HP.Remove all Memory Imprints from all allies at the start of every wave or Cycle.",
+    "enemies": [
+        {
+            "enemyId": "2032020",
+            "half": 1,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "enemyId": "2033010",
+            "half": 1,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "enemyId": "8013010",
+            "half": 1,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "enemyId": "2033010",
+            "half": 1,
+            "wave": 2,
+            "number": 1
+        },
+        {
+            "enemyId": "2004010",
+            "half": 1,
+            "wave": 2,
+            "number": 1
+        },
+        {
+            "enemyId": "1002030",
+            "half": 2,
+            "wave": 1,
+            "number": 2
+        },
+        {
+            "enemyId": "8003020",
+            "half": 2,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "enemyId": "1003010",
+            "half": 2,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "enemyId": "8034010",
+            "half": 2,
+            "wave": 2,
+            "number": 1
+        }
+
+    ]
+}
