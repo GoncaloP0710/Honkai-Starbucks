@@ -16,6 +16,10 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     const starRailUser = await client.fetchUser(uid);
     console.log("data fetched!");
 
+    if (!starRailUser) {
+        throw new Error("No user data returned");
+    }
+
     const nickname = starRailUser.nickname;
     const supportCharacters = starRailUser.supportCharacters;
     const starfaringCompanions = starRailUser.starfaringCompanions;

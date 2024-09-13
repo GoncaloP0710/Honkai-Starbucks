@@ -18,7 +18,6 @@ exports.createTeam = asyncHandler(async (req, res, next) => {
     }
 
     const teamMembers = await TrailBlazer.find({ _id: { $in: team } });
-    console.log('Team members:', teamMembers);
     const teamData = {
         username: username,
         name: name,
