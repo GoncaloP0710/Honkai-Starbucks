@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const enemySchema = new Schema({
     name: { type: String, required: true },
+    username: { type: String, required: false },
     enemyId: { type: Number, required: true },
     level: { type: Number, required: true },
     health: { type: Number, required: true },

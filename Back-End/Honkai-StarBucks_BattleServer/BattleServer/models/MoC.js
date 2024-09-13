@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const mocSchema = new Schema({
     MOC: { type: String, required: true },
+    username: { type: String, required: false },
     name: { type: String, required: true },
     buff: { type: String, required: true },
     firstHalf: { 
