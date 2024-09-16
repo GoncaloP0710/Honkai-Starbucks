@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const Enemy = require('../models/Enemy');
 const mongoose = require("mongoose");
 
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path'); // Import the path module
 
 /**
@@ -13,33 +13,35 @@ const path = require('path'); // Import the path module
 async function enemysDefaultCreateWithFolder(mocVersion) {
     const firstHalf = [];
     const secondHalf = [];
-    const folderPath = path.join(__dirname, `../MoCInfo_Json/MoC/${mocVersion}`);
+    const folderPath = path.join(__dirname, `../EnemyInfo_Json/MoC/${mocVersion}`);
 
     const firstHalfPath = path.join(folderPath, 'firstHalf');
     const secondHalfPath = path.join(folderPath, 'secondHalf');
 
     // Process files in the firstHalf folder
-    fs.readdirSync(firstHalfPath).forEach(file => {
+    const firstHalfFiles = await fs.readdir(firstHalfPath);
+    for (const file of firstHalfFiles) {
+        console.log("Processing file:" + file);
         const filePath = path.join(firstHalfPath, file);
-        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        const fileContent = await fs.readFile(filePath, 'utf-8');
         const enemyData = JSON.parse(fileContent); // Parse the JSON content
-        const enemy = enemyDefaultCreateWithJson(enemyData);
-        firstHalf.push(enemy);
-    });
+        firstHalf.push(await enemyDefaultCreateWithJson(enemyData));
+    }
 
     // Process files in the secondHalf folder
-    fs.readdirSync(secondHalfPath).forEach(file => {
+    const secondHalfFiles = await fs.readdir(secondHalfPath);
+    for (const file of secondHalfFiles) {
         const filePath = path.join(secondHalfPath, file);
-        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        const fileContent = await fs.readFile(filePath, 'utf-8');
         const enemyData = JSON.parse(fileContent); // Parse the JSON content
-        const enemy = enemyDefaultCreateWithJson(enemyData);
-        secondHalf.push(enemy);
-    });
+        secondHalf.push(await enemyDefaultCreateWithJson(enemyData));
+    }
 
-    return {firstHalf, secondHalf};
+    return { firstHalf, secondHalf };
 }
 
 async function enemyDefaultCreateWithJson(enemy) {
+
     const enemyData = {
         name: enemy.name,
         enemyId: enemy.enemyId,
@@ -48,21 +50,18 @@ async function enemyDefaultCreateWithJson(enemy) {
         phases: enemy.phases,
         defense: enemy.defense,
         speed: enemy.speed,
-        paths: [{
-            name: enemy.paths.name,
-            percentage: enemy.path.percentage, // Perceber o que o 150 significa
-        }],
+        paths: enemy.paths,
         statusResistance: enemy.statusResistance,
         statusProbability: enemy.statusProbability,
         imagePath: enemy.imagePath,
     };
     
-    const enemy = new Enemy(enemyData);
+    const enemyS = new Enemy(enemyData);
     
     try {
-        await enemy.save();
-        console.log('Enemy saved successfully');
-        return enemy;
+        await enemyS.save();
+        console.log('Enemy saved successfully:' + enemy.name);
+        return enemyS;
     } catch (err) {
         console.error('Error saving Enemy:', err);
         return null;

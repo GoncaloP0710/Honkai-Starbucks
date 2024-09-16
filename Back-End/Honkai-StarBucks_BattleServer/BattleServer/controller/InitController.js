@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const fs = require('fs');
 const path = require('path'); // Import the path module
 
+const MoCController = require('./MoCController');
 
 exports.init = asyncHandler(async (req, res, next) => {
     await populateDb();
@@ -18,30 +19,23 @@ async function populateDb() {
 
 async function deleteDb() {
     const collection = mongoose.connection.collections['mocs'];
+    const collection2 = mongoose.connection.collections['enemies'];
+
     if (collection) {
         await collection.drop();
         console.log('MoC collection dropped');
     } else {
         console.log('MoC collection does not exist');
     }
-}
 
-async function createMoC() {
-    const mocFolderPath = path.join(__dirname, "../MoCInfo_Json");
-
-    try {
-        const files = await fs.promises.readdir(mocFolderPath);
-
-        for (const file of files) {
-            const filePath = path.join(mocFolderPath, file);
-            console.log(`Processing file: ${filePath}`);
-            mocCreate(file);
-        }
-    } catch (err) {
-        console.error('Error reading directory:', err);
+    if (collection2) {
+        await collection2.drop();
+        console.log('Enemies collection dropped');
+    } else {
+        console.log('Enemies collection does not exist');
     }
 }
 
-async function mocCreate(file) {
-    console.log(`Creating MoC: ${file}`);
+async function createMoC() {
+    await MoCController.mocDefaultDBCreate();
 }
