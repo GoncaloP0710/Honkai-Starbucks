@@ -1,14 +1,5 @@
 # Honkai-StarBucks Project
 
-## Table of Contents
-
-- [To Do](#to-do)
-- [Overview](#overview)
-  - [Back-End](#back-end)
-    - [Honkai-StarBucks_BattleServer](#honkai-starbucks_battleserver)
-    - [Honkai-StarBucks_LoginServer](#honkai-starbucks_loginserver)
-    - [Honkai-StarBucks_MainServer](#honkai-starbucks_mainserver)
-
 ## To Do
 
 Tratar de todos os problemas com nulls... Se um char n tem lc por exemplo
