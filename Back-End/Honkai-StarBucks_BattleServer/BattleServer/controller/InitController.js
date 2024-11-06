@@ -8,6 +8,7 @@ const path = require('path'); // Import the path module
 const MoCController = require('./MoCController');
 
 exports.init = asyncHandler(async (req, res, next) => {
+    console.log('Populating MoC Database');
     await populateDb();
     res.send('MoC DATABASE POPULATED');
 });

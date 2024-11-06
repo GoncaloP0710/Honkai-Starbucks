@@ -48,6 +48,21 @@ The front-end client built with Angular.
 
 ### Installing Necessary Dependencies
 
+#### Honkai-StarBucks_Front-End
+
+1. Navigate to the project directory:
+    ```sh
+    cd .\Front-End\Honkai-StarBucks_Client
+    ```
+2. Install the required dependencies:
+    ```sh
+    npm install
+    ```
+3. Fix any vulnerabilities:
+    ```sh
+    npm audit fix
+    ```
+
 #### Honkai-StarBucks_TrailBlazersServer
 
 1. Navigate to the project directory:
@@ -65,6 +80,16 @@ The front-end client built with Angular.
 
 ### Executing the Project
 
-Run the `start_servers.bat` file to start the servers:
-```sh
-.\start_servers.bat
+- Windows
+
+    Run the `start_servers.bat` file to start the servers:
+    ```sh
+    .\start_servers.bat
+    ```
+
+- Linux 
+
+    Run the `start_servers.sh` file to start the servers:
+    ```sh
+    ./start_servers.sh
+    ```

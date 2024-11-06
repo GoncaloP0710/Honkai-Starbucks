@@ -21,5 +21,6 @@ app.use('/init', initRouter);
 // Start the server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
+    console.log('Battle Server');
     console.log(`Server is running on port ${PORT}`);
 });

@@ -35,24 +35,6 @@ async function mocDefaultCreate(mocJson, enemysDefault) {
     const { firstHalfFirstWave, firstHalfSecondWave,
          secondHalfFirstWave, secondHalfSecondWave } = orderEnemysDefault(mocJson, enemysDefault);
 
-    // Process enemies in the firstHalf array
-    firstHalf.forEach(enemy => {
-        if (enemy.wave === 1) {
-            firstHalfFirstWave.push(enemy);
-        } else {
-            firstHalfSecondWave.push(enemy);
-        }
-    });
-
-    // Process enemies in the secondHalf array
-    secondHalf.forEach(enemy => {
-        if (enemy.wave === 1) {
-            secondHalfFirstWave.push(enemy);
-        } else {
-            secondHalfSecondWave.push(enemy);
-        }
-    });
-
     const mocData = {
         MOC: mocJson.MOC,
         name: mocJson.name,
@@ -88,13 +70,35 @@ async function mocDefaultCreate(mocJson, enemysDefault) {
  */
 function orderEnemysDefault(mocJson, enemysDefault) {
     const { firstHalf, secondHalf } = enemysDefault;
-
     const firstHalfFirstWave = [];
     const firstHalfSecondWave = [];
     const secondHalfFirstWave = [];
     const secondHalfSecondWave = [];
-
     const enemies = mocJson.enemies;
+
+    function processEnemies(enemies, halfArray, firstWaveArray, secondWaveArray) {
+        enemies.forEach(enemy => {
+            halfArray.forEach(halfEnemy => {
+                if (halfEnemy.name === enemy.name) {
+                    if (enemy.wave === 1) {
+                        firstWaveArray.push(halfEnemy);
+                    } else if (enemy.wave === 2) {
+                        secondWaveArray.push(halfEnemy);
+                    } else {
+                        console.log('Enemy wave not recognized');
+                    }
+                }
+            });
+        });
+    }
+    
+    enemies.forEach(enemy => {
+        if (enemy.half === 1) {
+            processEnemies([enemy], firstHalf, firstHalfFirstWave, firstHalfSecondWave);
+        } else {
+            processEnemies([enemy], secondHalf, secondHalfFirstWave, secondHalfSecondWave);
+        }
+    });
 
     return { firstHalfFirstWave, firstHalfSecondWave, secondHalfFirstWave, secondHalfSecondWave };
 }
