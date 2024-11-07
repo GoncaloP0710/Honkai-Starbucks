@@ -20,7 +20,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: #5386d5;
   margin-right: 1rem; /* Space between logo and menu */
   padding: 0.5rem 1rem; /* Padding for the logo to look consistent */
   background-color: #24283b; /* Gray background for the logo */
@@ -40,7 +40,7 @@
 
 /* Apply styles for buttons inside menu-pages to match other buttons */
 .menu-pages button {
-    color: white;
+    color: #5386d5;
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem; /* Padding inside the button */
@@ -76,7 +76,7 @@
 }
 
 .menu button {
-  color: white;
+  color: #5386d5;
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem; /* Padding inside the button */
@@ -106,5 +106,5 @@
 }
 
 .top-navbar button.mat-icon-button mat-icon {
-  color: white !important; /* White icon color */
+  color: #5386d5 !important; /* White icon color */
 }
