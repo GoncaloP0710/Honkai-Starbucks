@@ -1,5 +1,5 @@
 .terminal-card-Jingliu {
-  background-color: rgba(30, 30, 46, 0.8); /* Dark background with 80% opacity */
+  background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
   color: #cdd9e5; /* Light text color */
   border-radius: 8px;
   padding: 10px;
@@ -13,7 +13,7 @@
 }
 
 .terminal-card-Fastfetch {
-  background-color: rgba(30, 30, 46, 0.8); /* Dark background with 80% opacity */
+  background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
   color: #cdd9e5; /* Light text color */
   border-radius: 8px;
   padding: 10px;
@@ -42,6 +42,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
+  margin-bottom: 8px;
 }
 
 .close { background-color: #ff5f56; }
@@ -51,7 +52,11 @@
 .terminal-title {
   font-size: 14px;
   font-weight: bold;
-  color: #8f93a2;
+  color: #ff79c6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
 }
 
 .terminal-content {

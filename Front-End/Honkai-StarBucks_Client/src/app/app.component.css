@@ -108,3 +108,14 @@
 .top-navbar button.mat-icon-button mat-icon {
   color: #5386d5 !important; /* White icon color */
 }
+
+/* Add this CSS to your component's stylesheet (home.component.css or home.component.scss) */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}

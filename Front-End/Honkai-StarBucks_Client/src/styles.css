@@ -5,7 +5,6 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgb(61, 61, 61); /* Fallback background color */
-    background-image: url('./assets/Images/HomePage/vlc-record-2024-10-10-20h35m03s-Ao-no-Hako-OP1-_1080p_.mp4-.gif'); /* Path to your GIF */
     background-size: cover; /* Ensure the background covers the entire body */
     background-repeat: no-repeat; /* Prevent the background from repeating */
     background-position: center; /* Center the background image */
