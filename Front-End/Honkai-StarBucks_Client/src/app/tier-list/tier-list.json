@@ -1,0 +1,18 @@
+{
+    "Damage Dealer": [
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Sunday.webp", "rank": "A", "tier": "T1" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "C", "tier": "T1.5" }
+    ],
+    "Support": [
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "F", "tier": "T1" },
+      { "path": "../assets/Images/Icons/Sunday.webp", "rank": "D", "tier": "T1.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "A", "tier": "T0.5" }
+    ],
+    "Sustain": [
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Sunday.webp", "rank": "S", "tier": "T1" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "B", "tier": "T1.5" }
+    ]
+  }
+  

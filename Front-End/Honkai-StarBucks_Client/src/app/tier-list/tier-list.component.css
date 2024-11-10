@@ -1,0 +1,70 @@
+
+
+/* Flex container for each row (tier) */
+.tier-row {
+    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+    position: relative;
+    top: 70px;
+    left: 0px;
+  }
+  
+  /* Tier Label on the left */
+  .tier-label {
+    font-weight: bold;
+    color: #ff79c6;
+    background-color: rgba(40, 40, 56, 1); /* Darker background */
+    padding: 10px;
+    text-align: center;
+    width: 80px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+  }
+  
+  /* Container for Category Columns (Damage Dealer, Support, Sustain) */
+  .category-columns {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+  }
+  
+  /* Each Category Column */
+  .category-column {
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* Category Headers */
+  .category-header {
+    color: #ff79c6;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  /* Character List */
+  .character-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Character Icon */
+  .character-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Character Rank */
+  .character-rank {
+    font-size: 12px;
+    font-weight: bold;
+    color: #8be9fd;
+  }
+  
