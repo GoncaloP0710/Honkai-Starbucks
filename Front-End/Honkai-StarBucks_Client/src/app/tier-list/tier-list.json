@@ -1,6 +1,19 @@
 {
     "Damage Dealer": [
       { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
+      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
       { "path": "../assets/Images/Icons/Sunday.webp", "rank": "A", "tier": "T1" },
       { "path": "../assets/Images/Icons/Fugue.webp", "rank": "C", "tier": "T1.5" }
     ],
