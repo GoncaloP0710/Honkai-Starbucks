@@ -12,10 +12,19 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getLoginData(username: string, password: string): Observable<any> {
-    const params = new HttpParams()
-      .set('username', username)
-      .set('password', password);
-
-    return this.http.get(`${this.baseUrl}/login`, { params });
+    const body = {
+        username: username,
+        password: password
+    };
+    return this.http.post(`${this.baseUrl}/login`, body);
   }
+
+  getRegisterData(username: string, password: string): Observable<any> {
+    const body = {
+        username: username,
+        password: password
+    };
+    return this.http.post(`${this.baseUrl}/login/register`, body);
+  }
+
 }

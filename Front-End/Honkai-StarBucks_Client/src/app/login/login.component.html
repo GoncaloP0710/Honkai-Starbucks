@@ -19,6 +19,9 @@
         <input id="password" type="password" class="terminal-input" [(ngModel)]="password" name="password">
         
         <button class="login-button" (click)="login()">Login</button>
+
+        <label *ngIf="loginMessage" class="login-message" [ngClass]="loginMessageType">{{ loginMessage }}</label>
+
       </div>
     </mat-card-content>
   </mat-card>

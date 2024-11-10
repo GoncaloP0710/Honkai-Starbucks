@@ -13,10 +13,9 @@ exports.login = asyncHandler(async (req, res, next) => {
 
 exports.register = asyncHandler(async (req, res, next) => {
     console.log("Registering...");
-    const { username, email, password } = req.body;
+    const { username, password } = req.body;
     const response = await axios.post(`http://localhost:5000/register/`, {
         username,
-        email,
         password
     });
     return res.json(response.data.message);
