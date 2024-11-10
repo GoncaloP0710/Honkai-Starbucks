@@ -1,11 +1,1 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: rgb(61, 61, 61); /* Fallback background color */
-    background-size: cover; /* Ensure the background covers the entire body */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
-    background-position: center; /* Center the background image */
-  }
+body { background-color: rgb(61, 61, 61); /* Fallback background color */ }

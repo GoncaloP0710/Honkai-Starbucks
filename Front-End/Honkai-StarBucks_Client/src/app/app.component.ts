@@ -18,7 +18,7 @@ export class AppComponent {
     { label: 'About', icon: 'info' },
     { label: 'Services', icon: 'build' },
     { label: 'Contact', icon: 'contact_mail' },
-    { label: 'Profile', icon: 'account_circle' },
+    { label: 'Profile', icon: 'account_circle', route: '/login' },
   ];
 
   menuItemsPages = [

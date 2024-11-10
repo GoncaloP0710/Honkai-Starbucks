@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div *ngIf="getUsername() === ''" cdkDrag>
+  <mat-card class="terminal-card-login">
+    <mat-card-header cdkDragHandle>
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="close"></span>
+          <span class="minimize"></span>
+          <span class="maximize"></span>
+        </div>
+        <span class="terminal-title">Login Terminal</span>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="terminal-content">
+      <div class="terminal-login">
+        <label for="username">Username:</label>
+        <input id="username" type="text" class="terminal-input" [(ngModel)]="username" name="username">
+        
+        <label for="password">Password:</label>
+        <input id="password" type="password" class="terminal-input" [(ngModel)]="password" name="password">
+        
+        <button class="login-button" (click)="login()">Login</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

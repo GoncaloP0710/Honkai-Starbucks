@@ -1,67 +1,36 @@
 :root {
-    --navbar-opacity: 0.8; /* Adjust this for the level of transparency */
+  --navbar-opacity: 0.8; /* Adjust this for the level of transparency */
 } 
 
 .top-navbar {
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    background-color: rgba(36, 40, 59, var(--navbar-opacity)); /* Semi-transparent background */
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px); /* Applies a blur effect to the content behind the navbar */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: rgba(36, 40, 59, var(--navbar-opacity)); /* Semi-transparent background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Applies a blur effect to the content behind the navbar */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
 }
 
 /* Logo */
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #5386d5;
-  margin-right: 1rem; /* Space between logo and menu */
-  padding: 0.5rem 1rem; /* Padding for the logo to look consistent */
-  background-color: #24283b; /* Gray background for the logo */
-  border-radius: 25px; /* Rounded edges for the logo */
+font-size: 1.5rem;
+font-weight: bold;
+color: #5386d5;
+margin-right: 1rem; /* Space between logo and menu */
+padding: 0.5rem 1rem; /* Padding for the logo to look consistent */
+background-color: #24283b; /* Gray background for the logo */
+border-radius: 25px; /* Rounded edges for the logo */
 }
 
 /* Menu for pages next to logo */
 .menu-pages {
-    display: flex; /* Aligns menu items in a row */
-    gap: 0; /* Remove gap between items */
-    display: flex;
-    align-items: center;
-    border-radius: 25px; /* Rounded corners for the entire group */
-    overflow: hidden; /* Hide overflow to maintain a clean rounded edge */
-    border: 1px solid #24283b; /* Border around the entire button container */
-}
-
-/* Apply styles for buttons inside menu-pages to match other buttons */
-.menu-pages button {
-    color: #5386d5;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem; /* Padding inside the button */
-    transition: color 0.3s ease;
-    background-color: #24283b; /* Dark background for the buttons */
-    border: 1px solid #24283b; /* Border to visually join buttons */
-    border-radius: 0; /* Remove border-radius to connect buttons */
-    margin-left: -1px; /* Remove space between buttons */
-}
-
-.menu-pages button:hover {
-  color: #ffca28; /* Hover color for text */
-}
-
-/* Spacer for flexbox layout to push items to the right */
-.spacer {
-  flex: 1 1 auto; /* This pushes the rest of the navbar items to the right */
-}
-
-/* Button container for the other menu items */
-.button-container {
+  display: flex; /* Aligns menu items in a row */
+  gap: 0; /* Remove gap between items */
   display: flex;
   align-items: center;
   border-radius: 25px; /* Rounded corners for the entire group */
@@ -69,13 +38,8 @@
   border: 1px solid #24283b; /* Border around the entire button container */
 }
 
-/* Menu styling */
-.menu {
-  display: flex; /* Aligns menu items in a row */
-  gap: 0; /* Remove gap between items */
-}
-
-.menu button {
+/* Apply styles for buttons inside menu-pages to match other buttons */
+.menu-pages button {
   color: #5386d5;
   display: flex;
   align-items: center;
@@ -87,26 +51,62 @@
   margin-left: -1px; /* Remove space between buttons */
 }
 
+.menu-pages button:hover {
+color: #ffca28; /* Hover color for text */
+}
+
+/* Spacer for flexbox layout to push items to the right */
+.spacer {
+flex: 1 1 auto; /* This pushes the rest of the navbar items to the right */
+}
+
+/* Button container for the other menu items */
+.button-container {
+display: flex;
+align-items: center;
+border-radius: 25px; /* Rounded corners for the entire group */
+overflow: hidden; /* Hide overflow to maintain a clean rounded edge */
+border: 1px solid #24283b; /* Border around the entire button container */
+}
+
+/* Menu styling */
+.menu {
+display: flex; /* Aligns menu items in a row */
+gap: 0; /* Remove gap between items */
+}
+
+.menu button {
+color: #5386d5;
+display: flex;
+align-items: center;
+padding: 0.5rem 1rem; /* Padding inside the button */
+transition: color 0.3s ease;
+background-color: #24283b; /* Dark background for the buttons */
+border: 1px solid #24283b; /* Border to visually join buttons */
+border-radius: 0; /* Remove border-radius to connect buttons */
+margin-left: -1px; /* Remove space between buttons */
+}
+
 .menu button:hover {
-  color: #ffca28; /* Hover color for text */
+color: #ffca28; /* Hover color for text */
 }
 
 /* Increased specificity for mat-icon-button inside .top-navbar */
 .top-navbar button.mat-icon-button {
-  background-color: #24283b !important; /* Ensure the background color is applied */
-  border-radius: 50% !important; /* Ensure the round shape */
-  padding: 0.5rem !important; /* Ensure the padding is consistent */
-  border: 1px solid #24283b !important; /* Border to match the navbar */
-  transition: background-color 0.3s ease, border 0.3s ease !important; /* Apply smooth transition */
+background-color: #24283b !important; /* Ensure the background color is applied */
+border-radius: 50% !important; /* Ensure the round shape */
+padding: 0.5rem !important; /* Ensure the padding is consistent */
+border: 1px solid #24283b !important; /* Border to match the navbar */
+transition: background-color 0.3s ease, border 0.3s ease !important; /* Apply smooth transition */
 }
 
 .top-navbar button.mat-icon-button:hover {
-  background-color: #555 !important; /* Darker background on hover */
-  border-color: #555 !important; /* Darker border on hover */
+background-color: #555 !important; /* Darker background on hover */
+border-color: #555 !important; /* Darker border on hover */
 }
 
 .top-navbar button.mat-icon-button mat-icon {
-  color: #5386d5 !important; /* White icon color */
+color: #5386d5 !important; /* White icon color */
 }
 
 /* Add this CSS to your component's stylesheet (home.component.css or home.component.scss) */
@@ -118,4 +118,7 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
-}
+  }
+
+
+  

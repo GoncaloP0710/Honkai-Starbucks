@@ -1,0 +1,94 @@
+
+::ng-deep .terminal-card-login {
+  background-color: rgba(30, 30, 46, 0.9) !important; /* Dark background similar to other terminals */
+  color: #cdd9e5;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 300px;
+  margin: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+
+  position: relative;
+  top: 300px;
+  left: 0px;
+}
+
+::ng-deep .terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+::ng-deep .terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+::ng-deep .terminal-buttons span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+::ng-deep .close { background-color: #ff5f56; }
+::ng-deep .minimize { background-color: #ffbd2e; }
+::ng-deep .maximize { background-color: #27c93f; }
+
+::ng-deep .terminal-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff79c6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+::ng-deep .terminal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+::ng-deep .terminal-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+::ng-deep .terminal-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #cdd9e5;
+}
+
+::ng-deep .login-button {
+  padding: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #8be9fd;
+  color: #282a36;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  width: 100%; /* Full width within the container */
+  max-width: 150px; /* Control the maximum width */
+  margin: 10px auto; /* Center the button */
+}
+
+.terminal-card-login input {
+  width: calc(100% - 20px); /* Adjust padding on input fields */
+  margin: 5px 0;
+}
+
+::ng-deep .login-button:hover {
+  background-color: #6272a4;
+}

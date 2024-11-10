@@ -11,10 +11,13 @@ import { AppComponent } from './app.component';
 import { TrailblazerComponent } from './trailblazer/trailblazer.component';
 import { HomeComponent } from './home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'trailblazer', component: TrailblazerComponent },
+    { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -22,8 +25,10 @@ const routes: Routes = [
     AppComponent,
     TrailblazerComponent,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     CommonModule,
     MatSlideToggleModule,
