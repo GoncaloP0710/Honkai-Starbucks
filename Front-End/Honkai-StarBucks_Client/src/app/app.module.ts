@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -12,7 +13,8 @@ import { TrailblazerComponent } from './trailblazer/trailblazer.component';
 import { HomeComponent } from './home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
+import { ApiService } from './api.service';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -38,6 +40,7 @@ const routes: Routes = [
     MatCardModule,
     RouterModule.forRoot(routes),
     DragDropModule,
+    HttpClientModule,
   ],
   exports: [
     CommonModule,
