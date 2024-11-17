@@ -1,31 +1,17 @@
 {
-    "Damage Dealer": [
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Sunday.webp", "rank": "A", "tier": "T1" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "C", "tier": "T1.5" }
-    ],
-    "Support": [
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "F", "tier": "T1" },
-      { "path": "../assets/Images/Icons/Sunday.webp", "rank": "D", "tier": "T1.5" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "A", "tier": "T0.5" }
-    ],
-    "Sustain": [
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "S", "tier": "T0.5" },
-      { "path": "../assets/Images/Icons/Sunday.webp", "rank": "S", "tier": "T1" },
-      { "path": "../assets/Images/Icons/Fugue.webp", "rank": "B", "tier": "T1.5" }
-    ]
-  }
-  
+  "Damage Dealer": [
+    { "File": "../assets/Images/Icons/Acheron.webp", "type": "H", "tier": "T1", "Element": "Lightning", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Argenti.webp", "type": "H", "tier": "T4", "Element": "Physical", "Path": "Erudition" },
+    { "File": "../assets/Images/Icons/Arlan.webp", "type": "H", "tier": "T5", "Element": "Lightning", "Path": "Destruction" }
+  ],
+  "Support": [
+    { "File": "../assets/Images/Icons/Fugue.webp", "type": "F", "tier": "T1", "Element": "Fire", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Sunday.webp", "type": "D", "tier": "T1.5", "Element": "Imaginary", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Fugue.webp", "type": "A", "tier": "T0.5", "Element": "Fire", "Path": "Nihility" }
+  ],
+  "Sustain": [
+    { "File": "../assets/Images/Icons/Fugue.webp", "type": "S", "tier": "T0.5", "Element": "Fire", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Sunday.webp", "type": "S", "tier": "T1", "Element": "Imaginary", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Fugue.webp", "type": "B", "tier": "T1.5", "Element": "Fire", "Path": "Nihility" }
+  ]
+}

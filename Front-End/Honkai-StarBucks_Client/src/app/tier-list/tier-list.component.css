@@ -1,13 +1,15 @@
-
-
-/* Flex container for each row (tier) */
-.tier-row {
+  /* Flex container for each row (tier) */
+  .tier-row {
     background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
     position: relative;
     top: 70px;
-    left: 0px;
+    left: -260px;
     margin-bottom: 25px;
     border-radius: 8px;
+    width: 70%; /* Set width to 70% */
+    margin: 0 auto; /* Center the element */
+    padding: 10px; /* Optional: Add padding for better appearance */
+    margin-bottom: 25px;
   }
   
   /* Tier Label on the left */
@@ -57,17 +59,94 @@
   
   /* Character Icon */
   .character-icon {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 5px;
     margin-bottom: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   }
   
   /* Character Rank */
-  .character-rank {
+  .character-type {
     font-size: 12px;
     font-weight: bold;
     color: #8be9fd;
   }
+
+  /* Header Row */
+  .header-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+    color: #ff79c6; /* Match the tier label color */
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    width: 70%; /* Set width to 70% */
+
+    position: relative;
+    top: 70px;
+    left: 12px;
+  }
+
+  /* Header Columns */
+  .header-column {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Filter Window */
+/* Container for the whole filter window */
+/* Wrapper for Filter Windows */
+.filter-windows-wrapper {
+  display: flex;
+  gap: 10px; /* Space between the two filter windows */
+  position: absolute;
+  top: 78px; /* Adjust according to the tier list’s position */
+  right: 50px; /* Adjust this value to bring it closer to the tier list */
+  z-index: 10; /* Ensure it's above other elements if needed */
+}
+
+/* Individual Filter Window Styling */
+.filter-window-Path,
+.filter-window-Element {
+  width: 200px; /* Adjust width as needed */
+  background-color: rgba(30, 30, 46, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #ff79c6;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: rgba(30, 30, 46, 0.9);
+  color: #ff79c6;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+button.active {
+  background-color: #8be9fd;
+  color: #1a1a2e;
+  font-weight: bold;
+}
+
+
   

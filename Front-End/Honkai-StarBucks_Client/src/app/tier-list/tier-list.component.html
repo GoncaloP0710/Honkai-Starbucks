@@ -1,24 +1,55 @@
 <div *ngIf="tierListData" class="terminal-tier-list">
-    <!-- Tier Row Loop -->
-    <div *ngFor="let tier of tiers" class="tier-row">
-      <!-- Tier Label -->
-      <div class="tier-label">{{ tier }}</div>
-  
-      <!-- Character Categories Columns (Damage Dealer, Support, Sustain) -->
-      <div class="category-columns">
-        <div *ngFor="let category of categories" class="category-column">
-          
-          <!-- Character List within each Category -->
-          <div class="character-list">
-            <ng-container *ngFor="let item of getCharactersByTierAndCategory(tier, category)">
-              <div class="character-item">
-                <img [src]="item.path" alt="Character Icon" class="character-icon">
-                <span class="character-rank">{{ item.rank }}</span>
-              </div>
-            </ng-container>
-          </div>
-        </div>
+
+  <!-- Filter Window -->
+  <div class="filter-windows-wrapper">
+    <div class="filter-window-Path">
+      <div class="filter-group">
+        <span class="filter-title">Filter by Path:</span>
+        <button *ngFor="let path of paths" (click)="togglePathFilter(path)" 
+              [class.active]="activePaths.includes(path)">
+        {{ path }}
+        </button>
+      </div>
+    </div>
+
+    <div class="filter-window-Element">
+      <div class="filter-group">
+        <span class="filter-title">Filter by Element:</span>
+        <button *ngFor="let element of elements" (click)="toggleElementFilter(element)" 
+              [class.active]="activeElements.includes(element)">
+        {{ element }}
+        </button>
+
       </div>
     </div>
   </div>
   
+  <!-- Header Row with Column Titles -->
+  <div class="header-row">
+    <div class="header-column">Damage Dealer</div>
+    <div class="header-column">Support</div>
+    <div class="header-column">Sustain</div>
+  </div>
+
+  <!-- Tier Row Loop -->
+  <div *ngFor="let tier of tiers" class="tier-row">
+    <!-- Tier Label -->
+    <div class="tier-label">{{ tier }}</div>
+
+    <!-- Character Categories Columns (Damage Dealer, Support, Sustain) -->
+    <div class="category-columns">
+      <div *ngFor="let category of categories" class="category-column">
+        
+        <!-- Character List within each Category, filtered by Path and Element -->
+        <div class="character-list">
+          <ng-container *ngFor="let item of getFilteredCharactersByTierAndCategory(tier, category)">
+            <div class="character-item"> 
+              <img [src]="item.File" alt="Character Icon" class="character-icon">
+              <span class="character-type">{{ item.type }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
