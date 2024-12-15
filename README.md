@@ -1,15 +1,6 @@
 # Honkai-StarBucks Project
 
-## To Do
-
-Tratar de todos os problemas com nulls... Se um char n tem lc por exemplo
-Adicionar os campos dos multipliers de todos os sets... Ex: damage reduction
-Endless game mode...
-Co-op mode...
-Remover email do login
-Create inimigo custom...
-
-Maneira de criar custoom MoC: reutiliazr a maneira dos moc default mas em vez de usar o id usar o id da db
+The project is currently under active development. Features and functionalities are being added and refined. Please note that some parts of the project may not be fully functional or stable at this stage. 
 
 ## Overview
 
@@ -27,7 +18,11 @@ This server handles user authentication and login functionalities.
 
 #### Honkai-StarBucks_MainServer
 
-This is the main server that handles various core functionalities.
+This is the main server that handles various core functionalities and fowards requests to the specific server.
+
+#### Honkai-StarBucks_TrailBlazersServer
+
+This server manages all functionalities related to the Trail Blazers, including importing them from the game and creating them from scratch.
 
 ### Front-End
 
