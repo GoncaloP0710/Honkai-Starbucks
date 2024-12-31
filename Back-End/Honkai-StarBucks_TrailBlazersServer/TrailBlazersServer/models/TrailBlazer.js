@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 // TODO: Check if i want to remove values like MaxSP cause its the same for the same character
 const trailblazerSchema = new Schema({
 
+    // Searched by:
+    usernames: [{ type: String, required: true }],
+
     // TrailBlazer Info
     username: { type: String, required: true },
     name: { type: String, required: true },

@@ -2,16 +2,55 @@
   "Damage Dealer": [
     { "File": "../assets/Images/Icons/Acheron.webp", "type": "H", "tier": "T1", "Element": "Lightning", "Path": "Nihility" },
     { "File": "../assets/Images/Icons/Argenti.webp", "type": "H", "tier": "T4", "Element": "Physical", "Path": "Erudition" },
-    { "File": "../assets/Images/Icons/Arlan.webp", "type": "H", "tier": "T5", "Element": "Lightning", "Path": "Destruction" }
+    { "File": "../assets/Images/Icons/Arlan.webp", "type": "H", "tier": "T5", "Element": "Lightning", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/BlackSwan.webp", "type": "D", "tier": "T2", "Element": "Wind", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Blade.webp", "type": "H", "tier": "T4", "Element": "Wind", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/Boothill.webp", "type": "B", "tier": "T1", "Element": "Physical", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Clara.webp", "type": "C", "tier": "T3", "Element": "Physical", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/DanHeng.webp", "type": "H", "tier": "T5", "Element": "Wind", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/DanHengImbiditorLunae.webp", "type": "H", "tier": "T2", "Element": "Imaginary", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/Dr.Ratio.webp", "type": "F", "tier": "T2", "Element": "Imaginary", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Feixiao.webp", "type": "F", "tier": "T0", "Element": "Wind", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Firefly.webp", "type": "B", "tier": "T0", "Element": "Fire", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/Guinaifen.webp", "type": "D", "tier": "T4", "Element": "Fire", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Herta.webp", "type": "F", "tier": "T3", "Element": "Ice", "Path": "Erudition" },
+    { "File": "../assets/Images/Icons/Himeko.webp", "type": "B", "tier": "T3", "Element": "Fire", "Path": "Erudition" },
+    { "File": "../assets/Images/Icons/Hook.webp", "type": "H", "tier": "T5", "Element": "Fire", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/JingYuan.webp", "type": "S", "tier": "T2", "Element": "Lightning", "Path": "Erudition" },
+    { "File": "../assets/Images/Icons/Kafka.webp", "type": "D", "tier": "T2", "Element": "Lightning", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Luka.webp", "type": "D", "tier": "T3", "Element": "Physical", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/March7thTheHunt.webp", "type": "F", "tier": "T2", "Element": "Imaginary", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Misha.webp", "type": "H", "tier": "T4", "Element": "Ice", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/Moze.webp", "type": "F", "tier": "T3", "Element": "Wind", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Qingque.webp", "type": "H", "tier": "T3", "Element": "Quantum", "Path": "Erudition" },
+    { "File": "../assets/Images/Icons/Rappa.webp", "type": "B", "tier": "T1", "Element": "Imaginary", "Path": "Erudition" },
+    { "File": "../assets/Images/Icons/Sampo.webp", "type": "D", "tier": "T4", "Element": "Wind", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Seele.webp", "type": "H", "tier": "T3", "Element": "Quantum", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Serval.webp", "type": "H", "tier": "T4", "Element": "Lightning", "Path": "Erudition" },
+    { "File": "../assets/Images/Icons/Sushang.webp", "type": "H", "tier": "T4", "Element": "Physical", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Topaz&Numby.webp", "type": "F", "tier": "T1", "Element": "Fire", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Welt.webp", "type": "H", "tier": "T3", "Element": "Imaginary", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Xueyi.webp", "type": "H", "tier": "T3", "Element": "Quantum", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/Yanqing.webp", "type": "H", "tier": "T3", "Element": "Ice", "Path": "Hunt" },
+    { "File": "../assets/Images/Icons/Yunli.webp", "type": "C", "tier": "T1", "Element": "Physical", "Path": "Destruction" },
+    { "File": "../assets/Images/Icons/Jade.webp", "type": "H", "tier": "T2", "Element": "Quantum", "Path": "Erudition" }
   ],
   "Support": [
-    { "File": "../assets/Images/Icons/Fugue.webp", "type": "F", "tier": "T1", "Element": "Fire", "Path": "Nihility" },
-    { "File": "../assets/Images/Icons/Sunday.webp", "type": "D", "tier": "T1.5", "Element": "Imaginary", "Path": "Harmony" },
-    { "File": "../assets/Images/Icons/Fugue.webp", "type": "A", "tier": "T0.5", "Element": "Fire", "Path": "Nihility" }
+    { "File": "../assets/Images/Icons/Fugue.webp", "type": "B", "tier": "T1", "Element": "Fire", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Sunday.webp", "type": "S", "tier": "T0", "Element": "Imaginary", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Asta.webp", "type": "D", "tier": "T3", "Element": "Fire", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Bronya.webp", "type": "H", "tier": "T2", "Element": "Wind", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Hanya.webp", "type": "H", "tier": "T3", "Element": "Physical", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Jiaoqiu.webp", "type": "D", "tier": "T1", "Element": "Fire", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Pela.webp", "type": "H", "tier": "T2", "Element": "Ice", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Robin.webp", "type": "F", "tier": "T0", "Element": "Physical", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/RuanMei.webp", "type": "B", "tier": "T0", "Element": "Ice", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/SilverWolf.webp", "type": "H", "tier": "T2", "Element": "Quantum", "Path": "Nihility" },
+    { "File": "../assets/Images/Icons/Sparkle.webp", "type": "H", "tier": "T1", "Element": "Quantum", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Tingyun.webp", "type": "H", "tier": "T2", "Element": "Lightning", "Path": "Harmony" },
+    { "File": "../assets/Images/Icons/Yukong.webp", "type": "H", "tier": "T3", "Element": "Imaginary", "Path": "Harmony" }
   ],
   "Sustain": [
-    { "File": "../assets/Images/Icons/Fugue.webp", "type": "S", "tier": "T0.5", "Element": "Fire", "Path": "Nihility" },
-    { "File": "../assets/Images/Icons/Sunday.webp", "type": "S", "tier": "T1", "Element": "Imaginary", "Path": "Harmony" },
-    { "File": "../assets/Images/Icons/Fugue.webp", "type": "B", "tier": "T1.5", "Element": "Fire", "Path": "Nihility" }
+
   ]
 }

@@ -38,11 +38,18 @@
   .category-column {
     flex: 1;
     text-align: center;
+    position: relative;
+    padding: 0 10px; /* Add padding for spacing */
   }
+
+  .category-column:not(:last-child) {
+    border-right: 2px solid rgba(255, 121, 198, 0.5); /* Light vertical line */
+  }
+
   
   /* Category Headers */
   .category-header {
-    color: #ff79c6;
+    color: rgb(255, 121, 198);
     font-size: 14px;
     font-weight: bold;
     padding-bottom: 5px;

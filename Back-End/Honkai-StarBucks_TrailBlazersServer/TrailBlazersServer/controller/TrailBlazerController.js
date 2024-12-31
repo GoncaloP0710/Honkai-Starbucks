@@ -12,6 +12,9 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     const uid = Object.keys(req.query)[0];
     console.log(uid);
 
+    const username = Object.keys(req.query)[1];
+    console.log(username);
+
     // Fetch user data based on UID
     const starRailUser = await client.fetchUser(uid);
     console.log("data fetched!");
@@ -44,7 +47,7 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         const { baseStats, addedStats, multipliersStats } = getNonFinalStats(transformedStats);
         const finalStats = getFinalStats(transformedStats, baseStats, addedStats, multipliersStats);
 
-        await createTrailBlazer(nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats);
+        await createTrailBlazer(username, nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats);
     }
 
     res.json();
@@ -182,30 +185,60 @@ function getFinalStats(transformedStats, baseStats, addedStats, multipliersStats
     return finalStats;
 }
 
-async function createTrailBlazer(nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats) {
-    const trailblazerData = {
+async function createTrailBlazer(username, nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats) {
+    
+    // Check if a TrailBlazer with the same name and other fields already exists
+    let trailblazer = await TrailBlazer.findOne({
         username: nickname,
         name: name,
-        type: type,
-        path: pathName,
-        level: level,
-        eidolon: eidolons,
-        tracesLevel: tracesLevel,
-        lightCone: lightConeInfo,
-        relics: relicsInfo,
-        finalStats: finalStats,
-        baseStats: baseStats,
-        addedStats: addedStats,
-        multipliersStats: multipliersStats,
-    };
-    
-    const trailblazer = new TrailBlazer(trailblazerData);
-    
-    try {
+    });
+
+    if (trailblazer) {
+        console.log('TrailBlazer already exists');
+        if (!trailblazer.usernames.includes(username)) {
+            trailblazer.usernames.push(username);
+        }
+        // Update other fields if necessary
+        trailblazer.type = type;
+        trailblazer.path = pathName;
+        trailblazer.level = level;
+        trailblazer.eidolon = eidolons;
+        trailblazer.tracesLevel = tracesLevel;
+        trailblazer.lightCone = lightConeInfo;
+        trailblazer.relics = relicsInfo;
+        trailblazer.finalStats = finalStats;
+        trailblazer.baseStats = baseStats;
+        trailblazer.addedStats = addedStats;
+        trailblazer.multipliersStats = multipliersStats;
+
         await trailblazer.save();
-        console.log('TrailBlazer saved successfully');
-    } catch (err) {
-        console.error('Error saving TrailBlazer:', err);
+    } else {
+    
+        const trailblazerData = {
+            usernames: [username], // Array of usernames that have this character (searched these trailblazer)
+            username: nickname,
+            name: name,
+            type: type,
+            path: pathName,
+            level: level,
+            eidolon: eidolons,
+            tracesLevel: tracesLevel,
+            lightCone: lightConeInfo,
+            relics: relicsInfo,
+            finalStats: finalStats,
+            baseStats: baseStats,
+            addedStats: addedStats,
+            multipliersStats: multipliersStats,
+        };
+        
+        trailblazer = new TrailBlazer(trailblazerData);
+
+        try {
+            await trailblazer.save();
+            console.log('TrailBlazer saved successfully');
+        } catch (err) {
+            console.error('Error saving TrailBlazer:', err);
+        }
     }
 }
 
