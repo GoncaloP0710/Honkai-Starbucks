@@ -7,23 +7,21 @@ import { TrailBlazer } from './trailblazer';
   providedIn: 'root'
 })
 export class TrailblazerService {
-  private apiUrl = 'http://localhost:3000/'; // TODO replace with the correct API URL
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
-  getTrailBlazers(): Observable<TrailBlazer[]> {
-    return this.http.get<TrailBlazer[]>(this.apiUrl);
-  }
+  //getAllTrailBlazers(userName: string): Observable<TrailBlazer[]> {
+  //  const body = { username: userName };
+  //  return this.http.get<TrailBlazer[]>(`${this.apiUrl}/characters/userName`, body);
+  //}
 
-  getTrailBlazer(id: string): Observable<TrailBlazer> {
-    return this.http.get<TrailBlazer>(`${this.apiUrl}/${id}`);
-  }
-
-  updateTrailBlazer(id: string, trailblazer: TrailBlazer): Observable<TrailBlazer> {
-    return this.http.put<TrailBlazer>(`${this.apiUrl}/${id}`, trailblazer);
+  getTrailBlazers(id: string, userName: string): Observable<TrailBlazer[]> {
+    const body = { uid: id, username: userName };
+    return this.http.post<TrailBlazer[]>(`${this.apiUrl}/characters/uid`, body);
   }
 
   deleteTrailBlazer(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/characters/${id}`);
   }
 }

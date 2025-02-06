@@ -8,10 +8,8 @@ const { sumStats } = require('../node_modules/starrail.js/dist/models/character/
 
 exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     console.log("Getting characters data...");
-
     const uid = Object.keys(req.query)[0];
     console.log(uid);
-
     const username = Object.keys(req.query)[1];
     console.log(username);
 
@@ -27,6 +25,7 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     const supportCharacters = starRailUser.supportCharacters;
     const starfaringCompanions = starRailUser.starfaringCompanions;
     const allCharacters = [...supportCharacters, ...starfaringCompanions];
+    let allTrailBlazers = [];
     
     for (const character of allCharacters) {
         // Fetch character data based on character ID
@@ -47,10 +46,10 @@ exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
         const { baseStats, addedStats, multipliersStats } = getNonFinalStats(transformedStats);
         const finalStats = getFinalStats(transformedStats, baseStats, addedStats, multipliersStats);
 
-        await createTrailBlazer(username, nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats);
+        allTrailBlazers.push(await createTrailBlazer(username, nickname, name, type, pathName, level, eidolons, tracesLevel, lightConeInfo, relicsInfo, finalStats, baseStats, addedStats, multipliersStats));
     }
 
-    res.json();
+    res.json(allTrailBlazers);
 });
 
 // Mapping of the API´s name to pathName
@@ -240,6 +239,7 @@ async function createTrailBlazer(username, nickname, name, type, pathName, level
             console.error('Error saving TrailBlazer:', err);
         }
     }
+    return trailblazer;
 }
 
 async function getTracesLevel(character) {
