@@ -9,17 +9,26 @@ import { TrailblazerService } from '../trailblazer.service';
   styleUrls: ['./trailblazer.component.css']
 })
 export class TrailblazerComponent {
-  trailLBlazers: Map<string, TrailBlazer>;
+  trailLBlazers: Map<[string, string], TrailBlazer>;
   username: string = '';
 
   constructor(private userService: UserService, private trailblazerService: TrailblazerService) {
-    this.trailLBlazers = new Map<string, TrailBlazer>();
+    this.trailLBlazers = new Map<[string, string], TrailBlazer>();
     this.username = this.userService.getUsername();
     this.fetchTrailBlazersWithUsername(this.username);
   }
 
   addTrailBlazer(trailBlazer: TrailBlazer): void {
-    this.trailLBlazers.set(trailBlazer.username, trailBlazer);
+    this.trailLBlazers.set([trailBlazer.username, trailBlazer._id], trailBlazer);
+  }
+
+  removeTrailBlazer(_id: string, username: string): void {
+    this.trailLBlazers.forEach((trailBlazer, key) => {
+      if (trailBlazer._id === _id && trailBlazer.name === username) {
+        this.trailLBlazers.delete(key);
+        // TODO: Remove from server
+      }
+    });
   }
 
   // Provide a uid of a player to fetch their trailblazers

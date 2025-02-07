@@ -3,3 +3,11 @@
   <input type="number" class="number-input w-[100px] text-center" placeholder="Enter uid" #uidInput />
   <button class="submit-button" (click)="fetchTrailBlazers(uidInput.value)">Add Trailblazers</button>
 </div>
+
+<!-- List of Trailblazers -->
+<div class="trailblazers-list mt-4">
+  <div *ngFor="let trailBlazer of trailLBlazers.values()" class="trailblazer-item flex items-center gap-2">
+    <span>{{ trailBlazer.name }} ({{ trailBlazer._id }})</span>
+    <button class="remove-button" (click)="removeTrailBlazer(trailBlazer._id, trailBlazer.name)">Remove</button>
+  </div>
+</div>

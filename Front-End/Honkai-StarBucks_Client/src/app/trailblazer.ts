@@ -75,6 +75,7 @@ export interface MultipliersStats {
 }
 
 export interface TrailBlazer {
+  _id: string;
   usernames: string[];
   username: string;
   name: string;
