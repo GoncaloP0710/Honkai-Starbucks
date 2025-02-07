@@ -1,120 +1,119 @@
-  /* Flex container for each row (tier) */
-  .tier-row {
-    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
-    position: relative;
-    top: 70px;
-    left: -260px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    width: 70%; /* Set width to 70% */
-    margin: 0 auto; /* Center the element */
-    padding: 10px; /* Optional: Add padding for better appearance */
-    margin-bottom: 25px;
-  }
-  
-  /* Tier Label on the left */
-  .tier-label {
-    font-weight: bold;
-    color: #ff79c6;
-    background-color: rgba(40, 40, 56, 1); /* Darker background */
-    padding: 10px;
-    text-align: center;
-    width: 80px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-right: 10px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-  }
-  
-  /* Container for Category Columns (Damage Dealer, Support, Sustain) */
-  .category-columns {
-    display: flex;
-    gap: 10px;
-    flex: 1;
-  }
-  
-  /* Each Category Column */
-  .category-column {
-    flex: 1;
-    text-align: center;
-    position: relative;
-    padding: 0 10px; /* Add padding for spacing */
-  }
+/* Flex container for each row (tier) */
+.tier-row {
+  background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+  position: relative;
+  top: 70px;
+  left: -260px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  width: 70%; /* Set width to 70% */
+  margin: 0 auto; /* Center the element */
+  padding: 10px; /* Optional: Add padding for better appearance */
+  margin-bottom: 25px;
+}
 
-  .category-column:not(:last-child) {
-    border-right: 2px solid rgba(255, 121, 198, 0.5); /* Light vertical line */
-  }
+/* Tier Label on the left */
+.tier-label {
+  font-weight: bold;
+  color: #ff79c6;
+  background-color: rgba(40, 40, 56, 1); /* Darker background */
+  padding: 10px;
+  text-align: center;
+  width: 80px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
 
-  
-  /* Category Headers */
-  .category-header {
-    color: rgb(255, 121, 198);
-    font-size: 14px;
-    font-weight: bold;
-    padding-bottom: 5px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 10px;
-  }
-  
-  /* Character List */
-  .character-list {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
-    gap: 10px; /* Space between character items */
-  }
-  
-  /* Character Icon */
-  .character-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    object-fit: cover; /* This will crop the image to fit the container */
-    object-position: center; /* This will center the image within the container */
-  }
-  
-  /* Character Rank */
-  .character-type {
-    font-size: 12px;
-    font-weight: bold;
-    color: #8be9fd;
-  }
+/* Container for Category Columns (Damage Dealer, Support, Sustain) */
+.category-columns {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
 
-  /* Header Row */
-  .header-row {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
-    color: #ff79c6; /* Match the tier label color */
-    font-weight: bold;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    width: 70%; /* Set width to 70% */
+/* Each Category Column */
+.category-column {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 10px; /* Add padding for spacing */
+}
 
-    position: relative;
-    top: 70px;
-    left: 12px;
-  }
+.category-column:not(:last-child) {
+  border-right: 2px solid rgba(255, 121, 198, 0.5); /* Light vertical line */
+}
 
-  /* Header Columns */
-  .header-column {
-    flex: 1;
-    text-align: center;
-  }
+/* Category Headers */
+.category-header {
+  color: rgb(255, 121, 198);
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+}
 
-  /* Filter Window */
+/* Character List */
+.character-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+  gap: 10px; /* Space between character items */
+}
+
+/* Character Icon */
+.character-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  object-fit: cover; /* This will crop the image to fit the container */
+  object-position: center; /* This will center the image within the container */
+}
+
+/* Character Rank */
+.character-type {
+  font-size: 12px;
+  font-weight: bold;
+  color: #8be9fd;
+}
+
+/* Header Row */
+.header-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+  color: #ff79c6; /* Match the tier label color */
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 70%; /* Set width to 70% */
+  position: relative;
+  top: 70px;
+  left: 12px;
+}
+
+/* Header Columns */
+.header-column {
+  flex: 1;
+  text-align: center;
+}
+
+/* Filter Window */
 /* Container for the whole filter window */
 /* Wrapper for Filter Windows */
 .filter-windows-wrapper {
   display: flex;
+  flex-wrap: wrap; /* Allow filter windows to wrap to the next line if necessary */
   gap: 10px; /* Space between the two filter windows */
   position: absolute;
-  top: 78px; /* Adjust according to the tier list’s position */
+  top: 70px; /* Adjust according to the tier list’s position */
   right: 50px; /* Adjust this value to bring it closer to the tier list */
   z-index: 10; /* Ensure it's above other elements if needed */
 }
@@ -157,5 +156,10 @@ button.active {
   font-weight: bold;
 }
 
-
-  
+/* Media Query to handle wrapping of filter windows */
+@media (max-width: 1400px) {
+  .filter-windows-wrapper {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}

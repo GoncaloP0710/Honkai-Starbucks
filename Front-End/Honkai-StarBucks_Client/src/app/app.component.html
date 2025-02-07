@@ -3,31 +3,31 @@
   Your browser does not support the video tag.
 </video>
 
-<mat-toolbar class="top-navbar">
+<mat-toolbar class="top-navbar flex items-center justify-between px-4">
   <!-- Logo -->
-  <span class="logo">Honkai-StarBucks</span>
-  
+  <span class="logo text-lg font-bold">Honkai-StarBucks</span>
+
   <!-- Menu for pages (next to logo) -->
-  <div class="menu-pages">
-    <button mat-button *ngFor="let item of menuItemsPages" (click)="onMenuClick(item)">
+  <div class="menu-pages flex gap-4">
+    <button mat-button *ngFor="let item of menuItemsPages" (click)="onMenuClick(item)" class="flex items-center gap-2">
       <mat-icon>{{ item.icon }}</mat-icon>
-      <span>{{ item.label }}</span>
+      <span class="hidden lg:block">{{ item.label }}</span>
     </button>
   </div>
 
-
   <!-- Spacer to push the rest of the menu to the right -->
-  <span class="spacer"></span>
+  <span class="spacer flex-grow"></span>
 
   <!-- Button Wrapper for other menu items -->
-  <div class="button-container">
-    <nav class="menu">
-      <button mat-button *ngFor="let item of menuItems" (click)="onMenuClick(item)">
+  <div class="button-container flex gap-4">
+    <nav class="menu flex gap-4">
+      <button mat-button *ngFor="let item of menuItems" (click)="onMenuClick(item)" class="flex items-center gap-2">
         <mat-icon>{{ item.icon }}</mat-icon>
-        <span>{{ item.label }}</span>
+        <span class="hidden lg:block">{{ item.label }}</span>
       </button>
     </nav>
   </div>
 </mat-toolbar>
+
 
 <router-outlet></router-outlet>
