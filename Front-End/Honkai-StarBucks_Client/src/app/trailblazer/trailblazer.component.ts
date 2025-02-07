@@ -22,8 +22,8 @@ export class TrailblazerComponent {
   }
 
   fetchTrailBlazers(id: string): void {
-    console.log(`Fetching trailblazers for ${id}`);
-    this.trailblazerService.getTrailBlazers(id, this.username).subscribe(
+    console.log(`Fetching trailblazers for ${id} : ${this.username}`);
+    this.trailblazerService.getTrailBlazers(Number(id), this.username).subscribe(
       trailBlazers => {
         console.log('Trailblazers fetched:', trailBlazers);
         trailBlazers.forEach(trailBlazer => this.addTrailBlazer(trailBlazer));

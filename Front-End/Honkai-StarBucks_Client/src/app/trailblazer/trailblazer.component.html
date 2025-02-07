@@ -1,5 +1,5 @@
 <!-- Number Input Button Container with Tailwind -->
 <div class="number-input-container flex items-center gap-2 w-fit mx-auto relative top-[50px] left-[-15px]">
   <input type="number" class="number-input w-[100px] text-center" placeholder="Enter uid" #uidInput />
-  <button class="submit-button">Add Trailblazers</button>
+  <button class="submit-button" (click)="fetchTrailBlazers(uidInput.value)">Add Trailblazers</button>
 </div>

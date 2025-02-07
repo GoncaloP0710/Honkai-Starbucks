@@ -8,8 +8,9 @@ exports.getCaharactersWithUid = asyncHandler(async (req, res, next) => {
     console.log(uid);
     console.log(username);
 
-    const uidS = new URLSearchParams(uid).toString();
-    const usernameS = new URLSearchParams(username).toString();
-    const response = await axios.get(`http://localhost:9000/trailBlazer/uid/?${uidS}&${usernameS}`);
+    const response = await axios.post('http://localhost:9000/trailBlazer/uid', {
+        uid: uid,
+        username: username
+      });    
     return res.json(response.data);
 });

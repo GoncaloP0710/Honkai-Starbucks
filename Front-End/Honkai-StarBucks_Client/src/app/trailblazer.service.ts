@@ -16,13 +16,13 @@ export class TrailblazerService {
   //  return this.http.get<TrailBlazer[]>(`${this.apiUrl}/characters/userName`, body);
   //}
 
-  getTrailBlazers(id: string, userName: string): Observable<TrailBlazer[]> {
-    const params = {
+  getTrailBlazers(id: Number, userName: string): Observable<TrailBlazer[]> {
+    const body = {
       uid: id,
       username: userName
     };
-    return this.http.get<TrailBlazer[]>(`${this.apiUrl}/characters/uid`, { params });
-  }
+    return this.http.post<TrailBlazer[]>(`${this.apiUrl}/characters/uid`, body);
+}
 
   deleteTrailBlazer(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/characters/${id}`);

@@ -8,13 +8,11 @@ const { sumStats } = require('../node_modules/starrail.js/dist/models/character/
 
 exports.getCaharactersWithUID = asyncHandler(async (req, res, next) => {
     console.log("Getting characters data...");
-    const uid = Object.keys(req.query)[0];
-    console.log(uid);
-    const username = Object.keys(req.query)[1];
-    console.log(username);
+    const {uid} = req.body;
+    const {username} = req.body;
 
     // Fetch user data based on UID
-    const starRailUser = await client.fetchUser(uid);
+    const starRailUser = await client.fetchUser(Number(uid));
     console.log("data fetched!");
 
     if (!starRailUser) {
