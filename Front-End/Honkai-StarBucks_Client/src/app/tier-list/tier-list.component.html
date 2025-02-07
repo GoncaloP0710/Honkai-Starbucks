@@ -22,31 +22,33 @@
       </div>
     </div>
   </div>
-  
-  <!-- Header Row with Column Titles -->
-  <div class="header-row">
-    <div class="header-column">Damage Dealer</div>
-    <div class="header-column">Support</div>
-    <div class="header-column">Sustain</div>
-  </div>
 
-  <!-- Tier Row Loop -->
-  <div *ngFor="let tier of tiers" class="tier-row">
-    <!-- Tier Label -->
-    <div class="tier-label">{{ tier }}</div>
+  <div class="tier-list-container">
+    <!-- Header Row with Column Titles -->
+    <div class="header-row">
+      <div class="header-column">Damage Dealer</div>
+      <div class="header-column">Support</div>
+      <div class="header-column">Sustain</div>
+    </div>
 
-    <!-- Character Categories Columns (Damage Dealer, Support, Sustain) -->
-    <div class="category-columns">
-      <div *ngFor="let category of categories" class="category-column">
-        
-        <!-- Character List within each Category, filtered by Path and Element -->
-        <div class="character-list">
-          <ng-container *ngFor="let item of getFilteredCharactersByTierAndCategory(tier, category)">
-            <div class="character-item"> 
-              <img [src]="item.File" alt="Character Icon" class="character-icon">
-              <span class="character-type">{{ item.type }}</span>
-            </div>
-          </ng-container>
+    <!-- Tier Row Loop -->
+    <div *ngFor="let tier of tiers" class="tier-row">
+      <!-- Tier Label -->
+      <div class="tier-label">{{ tier }}</div>
+
+      <!-- Character Categories Columns (Damage Dealer, Support, Sustain) -->
+      <div class="category-columns">
+        <div *ngFor="let category of categories" class="category-column">
+          
+          <!-- Character List within each Category, filtered by Path and Element -->
+          <div class="character-list">
+            <ng-container *ngFor="let item of getFilteredCharactersByTierAndCategory(tier, category)">
+              <div class="character-item"> 
+                <img [src]="item.File" alt="Character Icon" class="character-icon">
+                <span class="character-type">{{ item.type }}</span>
+              </div>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>
