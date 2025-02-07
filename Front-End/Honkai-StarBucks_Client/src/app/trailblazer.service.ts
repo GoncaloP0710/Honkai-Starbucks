@@ -22,9 +22,10 @@ export class TrailblazerService {
       username: userName
     };
     return this.http.post<TrailBlazer[]>(`${this.apiUrl}/characters/uid`, body);
-}
+  }
 
-  removeTrailBlazer(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/characters/${id}`);
+  removeTrailBlazer(id: string, userName: string): Observable<void> {
+    console.log(`Removing Trailblazer with ID: ${id} and Username: ${userName}`);
+    return this.http.delete<void>(`${this.apiUrl}/characters/${id}/${userName}`);
   }
 }

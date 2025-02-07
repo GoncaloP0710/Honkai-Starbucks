@@ -38,3 +38,23 @@ exports.getCaharactersWithUsername = asyncHandler(async (req, res, next) => {
         return res.status(500).json({ message: 'Error fetching characters data' });
     }
 });
+
+exports.removeCharacter = asyncHandler(async (req, res, next) => {
+    const { id, username } = req.params;
+    console.log(`Removing character with id ${id} for user ${username}`);
+
+    if (!username) {
+        return res.status(400).json({ message: 'Username is required' });
+    }
+
+    try {
+        // Make a request to the external service to remove the character
+        const response = await axios.delete(`http://localhost:9000/trailBlazer/${id}/${username}`);
+
+        // Send the response data back to the client
+        return res.json(response.data);
+    } catch (error) {
+        console.error('Error removing character:', error);
+        return res.status(500).json({ message: 'Error removing character' });
+    }
+});

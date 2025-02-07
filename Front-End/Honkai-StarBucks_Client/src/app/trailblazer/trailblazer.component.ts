@@ -25,8 +25,15 @@ export class TrailblazerComponent {
   removeTrailBlazer(_id: string, username: string): void {
     this.trailLBlazers.forEach((trailBlazer, key) => {
       if (trailBlazer._id === _id && trailBlazer.name === username) {
-        this.trailLBlazers.delete(key);
-        // TODO: Remove from server
+        this.trailblazerService.removeTrailBlazer(_id, this.username).subscribe(
+          () => {
+            console.log('Trailblazer removed:', trailBlazer);
+            this.trailLBlazers.delete(key);
+          },
+          error => {
+            console.error('Error removing trailblazer:', error);
+          }
+        );
       }
     });
   }
