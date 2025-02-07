@@ -14,3 +14,27 @@ exports.getCaharactersWithUid = asyncHandler(async (req, res, next) => {
       });    
     return res.json(response.data);
 });
+
+exports.getCaharactersWithUsername = asyncHandler(async (req, res, next) => {
+    // Extract username from query parameters
+    const { username } = req.query;
+    console.log(`Username: ${username}`);
+
+    if (!username) {
+        return res.status(400).json({ message: 'Username is required' });
+    }
+
+    // Send request to TrailBlazersServer
+    try {
+        // Make a request to the external service to get characters data
+        const response = await axios.get(`http://localhost:9000/trailBlazer/userName`, {
+            params: { username }
+        });
+
+        // Send the response data back to the client
+        return res.json(response.data);
+    } catch (error) {
+        console.error('Error fetching characters data:', error);
+        return res.status(500).json({ message: 'Error fetching characters data' });
+    }
+});

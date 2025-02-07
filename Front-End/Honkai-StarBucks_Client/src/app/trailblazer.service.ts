@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TrailBlazer } from './trailblazer';
 
@@ -11,10 +11,10 @@ export class TrailblazerService {
 
   constructor(private http: HttpClient) {}
 
-  //getAllTrailBlazers(userName: string): Observable<TrailBlazer[]> {
-  //  const body = { username: userName };
-  //  return this.http.get<TrailBlazer[]>(`${this.apiUrl}/characters/userName`, body);
-  //}
+  getTrailBlazersWithUsername(userName: string): Observable<TrailBlazer[]> {
+    const params = new HttpParams().set('username', userName);
+    return this.http.get<TrailBlazer[]>(`${this.apiUrl}/characters/userName`, { params });
+  }
 
   getTrailBlazers(id: Number, userName: string): Observable<TrailBlazer[]> {
     const body = {
@@ -24,7 +24,7 @@ export class TrailblazerService {
     return this.http.post<TrailBlazer[]>(`${this.apiUrl}/characters/uid`, body);
 }
 
-  deleteTrailBlazer(id: string): Observable<void> {
+  removeTrailBlazer(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/characters/${id}`);
   }
 }

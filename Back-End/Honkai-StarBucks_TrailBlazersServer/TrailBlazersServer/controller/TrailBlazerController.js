@@ -295,3 +295,30 @@ function jsonFileToObject(filePath) {
         return null;
     }
 }
+
+// ----------------------------
+
+exports.getCaharactersWithUserName = asyncHandler(async (req, res, next) => {
+    console.log("Getting characters data...");
+
+    // Extract username from query parameters
+    const { username } = req.query;
+    console.log(`Username: ${username}`);
+
+    if (!username) {
+        return res.status(400).json({ message: 'Username is required' });
+    }
+
+    try {
+        // Find trailblazers where the usernames array contains the specified username
+        let trailblazers = await TrailBlazer.find({
+            usernames: { $in: [username] }
+        });
+
+        // Send the response data back to the client
+        return res.json(trailblazers);
+    } catch (error) {
+        console.error('Error fetching characters data:', error);
+        return res.status(500).json({ message: 'Error fetching characters data' });
+    }
+});
