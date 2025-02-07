@@ -17,8 +17,11 @@ export class TrailblazerService {
   //}
 
   getTrailBlazers(id: string, userName: string): Observable<TrailBlazer[]> {
-    const body = { uid: id, username: userName };
-    return this.http.post<TrailBlazer[]>(`${this.apiUrl}/characters/uid`, body);
+    const params = {
+      uid: id,
+      username: userName
+    };
+    return this.http.get<TrailBlazer[]>(`${this.apiUrl}/characters/uid`, { params });
   }
 
   deleteTrailBlazer(id: string): Observable<void> {

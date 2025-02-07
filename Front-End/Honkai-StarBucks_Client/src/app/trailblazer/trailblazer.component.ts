@@ -22,8 +22,15 @@ export class TrailblazerComponent {
   }
 
   fetchTrailBlazers(id: string): void {
-    this.trailblazerService.getTrailBlazers(id, this.username).subscribe(trailBlazers => {
-      trailBlazers.forEach(trailBlazer => this.addTrailBlazer(trailBlazer));
-    });
+    console.log(`Fetching trailblazers for ${id}`);
+    this.trailblazerService.getTrailBlazers(id, this.username).subscribe(
+      trailBlazers => {
+        console.log('Trailblazers fetched:', trailBlazers);
+        trailBlazers.forEach(trailBlazer => this.addTrailBlazer(trailBlazer));
+      },
+      error => {
+        console.error('Error fetching trailblazers:', error);
+      }
+    );
   }
 }
