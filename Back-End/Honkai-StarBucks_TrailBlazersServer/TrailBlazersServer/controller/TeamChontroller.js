@@ -47,3 +47,15 @@ exports.getTeamsWithUsername = asyncHandler(async (req, res, next) => {
         return res.status(500).json({ error: 'Failed to get teams' });
     }
 });
+
+exports.deleteTeam = asyncHandler(async (req, res, next) => {
+    const { id } = req.query;
+
+    try {
+        await Team.deleteOne({ _id: id });
+        res.json();
+    } catch (error) {
+        console.error('Error deleting team:', error);
+        return res.status(500).json({ error: 'Failed to delete team' });
+    }
+});

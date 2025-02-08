@@ -20,6 +20,8 @@ export class TrailblazerComponent {
     this.fetchTeams(this.username);
   }
 
+  // ================== TrailBlazers ==================
+
   addTrailBlazer(trailBlazer: TrailBlazer): void {
     this.trailLBlazers.set([trailBlazer.username, trailBlazer._id], trailBlazer);
   }
@@ -68,6 +70,8 @@ export class TrailblazerComponent {
     );
   }
 
+  // ================== Teams ==================
+
   fetchTeams(username: string): void {
     console.log(`Fetching teams for ${username}`);
     this.trailblazerService.getTeams(username).subscribe(
@@ -77,6 +81,31 @@ export class TrailblazerComponent {
       },
       error => {
         console.error('Error fetching teams:', error);
+      }
+    );
+  }
+
+  addTeam(teamName: string, trailBlazers: TrailBlazer[]): void {
+    console.log(`Adding team with name: ${teamName}`);
+    this.trailblazerService.addTeam(this.username, trailBlazers, teamName).subscribe(
+      () => {
+        console.log('Team added');
+        this.fetchTeams(this.username);
+      },
+      error => {
+        console.error('Error adding team:', error);
+      }
+    );
+  }
+
+  removeTeam(id: string): void {
+    this.trailblazerService.removeTeam(id).subscribe(
+      () => {
+        console.log(`Team removed with ID: ${id}`);
+        this.teams = this.teams.filter(team => team._id !== id);
+      },
+      error => {
+        console.error('Error removing team:', error);
       }
     );
   }

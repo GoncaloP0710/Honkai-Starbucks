@@ -8,9 +8,12 @@ import { Teams, TrailBlazer } from './trailblazer';
 })
 export class TrailblazerService {
 
+  // The URL of the Main server
   private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
+
+  // ================== TrailBlazers ==================
 
   getTrailBlazersWithUsername(userName: string): Observable<TrailBlazer[]> {
     const params = new HttpParams().set('username', userName);
@@ -30,8 +33,24 @@ export class TrailblazerService {
     return this.http.delete<void>(`${this.apiUrl}/characters/${id}/${userName}`);
   }
 
+  // ================== Teams ==================
+
   getTeams(userName: string) {
     const params = new HttpParams().set('username', userName);
     return this.http.get<Teams[]>(`${this.apiUrl}/team/userName`, { params });
+  }
+
+  addTeam(userName: string, trailBlazers: TrailBlazer[], teamName: string): Observable<void> {
+    const body = {
+      username: userName,
+      name: teamName,
+      team: trailBlazers
+    };
+    return this.http.post<void>(`${this.apiUrl}/team/createTeam`, body);
+  }
+
+  removeTeam(id: string): Observable<void> {
+    console.log(`Removing Team with ID: ${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/team/${id}`);
   }
 }

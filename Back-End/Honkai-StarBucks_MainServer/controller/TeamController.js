@@ -39,3 +39,15 @@ exports.getTeamsWithUsername = async (req, res) => {
         return res.status(500).json({ error: 'Failed to get teams' });
     }
 }
+
+exports.deleteTeam = async (req, res) => {
+    const { id } = req.query;
+
+    try {
+        const response = await axios.delete(`http://localhost:9000/team?id=${id}`);
+        return res.json(response.data.message);
+    } catch (error) {
+        console.error('Error deleting team:', error);
+        return res.status(500).json({ error: 'Failed to delete team' });
+    }
+}
