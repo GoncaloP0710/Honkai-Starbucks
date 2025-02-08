@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TrailBlazer } from '../trailblazer';
+import { Teams, TrailBlazer } from '../trailblazer';
 import { UserService } from '../user.service';
 import { TrailblazerService } from '../trailblazer.service';
 
@@ -9,6 +9,7 @@ import { TrailblazerService } from '../trailblazer.service';
   styleUrls: ['./trailblazer.component.css']
 })
 export class TrailblazerComponent {
+  teams: Teams[] = [];
   trailLBlazers: Map<[string, string], TrailBlazer>;
   username: string = '';
 
@@ -16,6 +17,7 @@ export class TrailblazerComponent {
     this.trailLBlazers = new Map<[string, string], TrailBlazer>();
     this.username = this.userService.getUsername();
     this.fetchTrailBlazersWithUsername(this.username);
+    this.fetchTeams(this.username);
   }
 
   addTrailBlazer(trailBlazer: TrailBlazer): void {
@@ -62,6 +64,19 @@ export class TrailblazerComponent {
       },
       error => {
         console.error('Error fetching trailblazers:', error);
+      }
+    );
+  }
+
+  fetchTeams(username: string): void {
+    console.log(`Fetching teams for ${username}`);
+    this.trailblazerService.getTeams(username).subscribe(
+      teams => {
+        console.log('Teams fetched:', teams);
+        this.teams = teams;
+      },
+      error => {
+        console.error('Error fetching teams:', error);
       }
     );
   }

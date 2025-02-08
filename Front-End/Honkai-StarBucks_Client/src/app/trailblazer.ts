@@ -91,3 +91,9 @@ export interface TrailBlazer {
   addedStats: AddedStats;
   multipliersStats: MultipliersStats;
 }
+
+export interface Teams {
+  _id: string;
+  teamName: string;
+  team: TrailBlazer[];
+}

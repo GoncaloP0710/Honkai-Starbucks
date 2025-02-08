@@ -27,3 +27,15 @@ exports.createTeam = async (req, res) => {
         return res.status(500).json({ error: 'Failed to create team' });
     }
 };
+
+exports.getTeamsWithUsername = async (req, res) => {
+    const { username } = req.query;
+
+    try {
+        const response = await axios.get(`http://localhost:9000/team/username?username=${username}`);
+        return res.json(response.data);
+    } catch (error) {
+        console.error('Error getting teams:', error);
+        return res.status(500).json({ error: 'Failed to get teams' });
+    }
+}

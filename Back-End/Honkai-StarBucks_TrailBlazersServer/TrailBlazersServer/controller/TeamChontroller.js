@@ -35,3 +35,15 @@ exports.createTeam = asyncHandler(async (req, res, next) => {
 
     res.json();
 });
+
+exports.getTeamsWithUsername = asyncHandler(async (req, res, next) => {
+    const { username } = req.query;
+
+    try {
+        const teams = await Team.find({ username: username });
+        res.json(teams);
+    } catch (error) {
+        console.error('Error getting teams:', error);
+        return res.status(500).json({ error: 'Failed to get teams' });
+    }
+});
