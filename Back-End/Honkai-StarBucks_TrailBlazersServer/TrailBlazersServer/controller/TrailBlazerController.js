@@ -325,18 +325,18 @@ exports.getCaharactersWithUserName = asyncHandler(async (req, res, next) => {
 
 exports.removeCharacter = asyncHandler(async (req, res, next) => {
     const { id, username } = req.params;
-    console.log(`Removing character with id ${id} for user ${username}`);
+    console.log(`Removing TrailBlazer with id ${id} for user ${username}`);
     try {
-      const result = await Character.updateOne(
+      const result = await TrailBlazer.updateOne(
         { _id: id },
         { $pull: { usernames: username } }
       );
       if (result.nModified === 0) {
-        console.log('Character or username not found');
-        return res.status(404).json({ message: 'Character or username not found' });
+        console.log('TrailBlazer or username not found');
+        return res.status(404).json({ message: 'TrailBlazer or username not found' });
       }
-      res.status(200).json({ message: 'Username removed from character successfully' });
+      res.status(200).json({ message: 'Username removed from TrailBlazer successfully' });
     } catch (error) {
-      res.status(500).json({ message: 'Error removing username from character', error });
+      res.status(500).json({ message: 'Error removing username from TrailBlazer', error });
     }
 });
