@@ -11,7 +11,7 @@
     <div class="initial-card p-4 border rounded shadow-md" (mouseenter)="trailBlazer.showDetails = true" (mouseleave)="trailBlazer.showDetails = false">
       <span>{{ trailBlazer.name }} ({{ trailBlazer.username }})</span>
     </div>
-    
+
     <!-- Detailed Card -->
     <div *ngIf="trailBlazer.showDetails" class="detailed-card p-4 border rounded shadow-md absolute top-0 left-[120px] bg-white">
       <h3>{{ trailBlazer.name }}'s Details</h3>
@@ -21,21 +21,35 @@
         <li>Attack: {{ trailBlazer.finalStats.FinalAttack }}</li>
         <li>Defence: {{ trailBlazer.finalStats.FinalDefence }}</li>
         <li>Speed: {{ trailBlazer.finalStats.FinalSpeed }}</li>
-        <li>SP Ratio: {{ trailBlazer.finalStats.FinalSPRatio }}</li>
-        <li>Max SP: {{ trailBlazer.finalStats.MaxSP }}</li>
         <li>Critical Chance: {{ trailBlazer.finalStats.CriticalChanceBase }}</li>
         <li>Critical Damage: {{ trailBlazer.finalStats.CriticalDamageBase }}</li>
         <li>Break Damage Added Ratio: {{ trailBlazer.finalStats.BreakDamageAddedRatioBase }}</li>
         <li>Heal Ratio: {{ trailBlazer.finalStats.HealRatioBase }}</li>
         <li>Status Probability: {{ trailBlazer.finalStats.StatusProbabilityBase }}</li>
         <li>Status Resistance: {{ trailBlazer.finalStats.StatusResistanceBase }}</li>
-        <li>Thunder Added Ratio: {{ trailBlazer.finalStats.ThunderAddedRatio }}</li>
-        <li>Fire Added Ratio: {{ trailBlazer.finalStats.FireAddedRatio }}</li>
-        <li>Ice Added Ratio: {{ trailBlazer.finalStats.IceAddedRatio }}</li>
-        <li>Wind Added Ratio: {{ trailBlazer.finalStats.WindAddedRatio }}</li>
-        <li>Quantom Added Ratio: {{ trailBlazer.finalStats.QuantomAddedRatio }}</li>
-        <li>Physical Added Ratio: {{ trailBlazer.finalStats.PhysicalAddedRatio }}</li>
-        <li>Imaginary Added Ratio: {{ trailBlazer.finalStats.ImaginaryAddedRatio }}</li>
+
+        <li *ngIf="trailBlazer.finalStats.ThunderAddedRatio !== 0">
+          Thunder Added Ratio: {{ trailBlazer.finalStats.ThunderAddedRatio }}
+        </li>
+        <li *ngIf="trailBlazer.finalStats.FireAddedRatio !== 0">
+          Fire Added Ratio: {{ trailBlazer.finalStats.FireAddedRatio }}
+        </li>
+        <li *ngIf="trailBlazer.finalStats.IceAddedRatio !== 0">
+          Ice Added Ratio: {{ trailBlazer.finalStats.IceAddedRatio }}
+        </li>
+        <li *ngIf="trailBlazer.finalStats.WindAddedRatio !== 0">
+          Wind Added Ratio: {{ trailBlazer.finalStats.WindAddedRatio }}
+        </li>
+        <li *ngIf="trailBlazer.finalStats.QuantomAddedRatio !== 0">
+          Quantom Added Ratio: {{ trailBlazer.finalStats.QuantomAddedRatio }}
+        </li>
+        <li *ngIf="trailBlazer.finalStats.PhysicalAddedRatio !== 0">
+          Physical Added Ratio: {{ trailBlazer.finalStats.PhysicalAddedRatio }}
+        </li>
+        <li *ngIf="trailBlazer.finalStats.ImaginaryAddedRatio !== 0">
+          Imaginary Added Ratio: {{ trailBlazer.finalStats.ImaginaryAddedRatio }}
+        </li>
+
       </ul>
       <p><strong>Light Cone:</strong> {{ trailBlazer.lightCone.name }} (Level: {{ trailBlazer.lightCone.level }})</p>
       <p><strong>Eidolon:</strong> {{ trailBlazer.eidolon }}</p>
@@ -46,27 +60,6 @@
         <li>Ultimate: {{ trailBlazer.tracesLevel.ultimate }}</li>
         <li>Talent: {{ trailBlazer.tracesLevel.talent }}</li>
         <!-- Add more traces levels as needed -->
-      </ul>
-      <p><strong>Base Stats:</strong></p>
-      <ul>
-        <li>HP: {{ trailBlazer.baseStats.BaseHP }}</li>
-        <li>Attack: {{ trailBlazer.baseStats.BaseAttack }}</li>
-        <li>Defence: {{ trailBlazer.baseStats.BaseDefence }}</li>
-        <li>Speed: {{ trailBlazer.baseStats.BaseSpeed }}</li>
-      </ul>
-      <p><strong>Added Stats:</strong></p>
-      <ul>
-        <li>HP Delta: {{ trailBlazer.addedStats.HPDelta }}</li>
-        <li>Attack Delta: {{ trailBlazer.addedStats.AttackDelta }}</li>
-        <li>Defence Delta: {{ trailBlazer.addedStats.DefenceDelta }}</li>
-        <li>Speed Delta: {{ trailBlazer.addedStats.SpeedDelta }}</li>
-      </ul>
-      <p><strong>Multipliers Stats:</strong></p>
-      <ul>
-        <li>HP Added Ratio: {{ trailBlazer.multipliersStats.HPAddedRatio }}</li>
-        <li>Attack Added Ratio: {{ trailBlazer.multipliersStats.AttackAddedRatio }}</li>
-        <li>Defence Added Ratio: {{ trailBlazer.multipliersStats.DefenceAddedRatio }}</li>
-        <li>Speed Added Ratio: {{ trailBlazer.multipliersStats.SpeedAddedRatio }}</li>
       </ul>
     </div>
   </div>
