@@ -95,6 +95,6 @@ export interface TrailBlazer {
 
 export interface Teams {
   _id: string;
-  teamName: string;
-  team: TrailBlazer[];
+  name: string;
+  trailBlazers: TrailBlazer[];
 }

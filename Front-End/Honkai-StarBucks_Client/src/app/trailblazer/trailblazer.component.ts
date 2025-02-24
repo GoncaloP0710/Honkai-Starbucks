@@ -27,6 +27,7 @@ export class TrailblazerComponent {
   // ================== TrailBlazers ==================
 
   addTrailBlazer(trailBlazer: TrailBlazer): void {
+    trailBlazer.showDetails = false; // Initialize showDetails property
     this.trailLBlazers.set([trailBlazer.username, trailBlazer._id], trailBlazer);
     this.filterTrailblazers();
   }
@@ -54,7 +55,10 @@ export class TrailblazerComponent {
     this.trailblazerService.getTrailBlazers(Number(id), this.username).subscribe(
       trailBlazers => {
         console.log('Trailblazers fetched:', trailBlazers);
-        trailBlazers.forEach(trailBlazer => this.addTrailBlazer(trailBlazer));
+        trailBlazers.forEach(trailBlazer => {
+          trailBlazer.showDetails = false; // Initialize showDetails property
+          this.addTrailBlazer(trailBlazer);
+        });
       },
       error => {
         console.error('Error fetching trailblazers:', error);
@@ -68,7 +72,10 @@ export class TrailblazerComponent {
     this.trailblazerService.getTrailBlazersWithUsername(username).subscribe(
       trailBlazers => {
         console.log('Trailblazers fetched:', trailBlazers);
-        trailBlazers.forEach(trailBlazer => this.addTrailBlazer(trailBlazer));
+        trailBlazers.forEach(trailBlazer => {
+          trailBlazer.showDetails = false; // Initialize showDetails property
+          this.addTrailBlazer(trailBlazer);
+        });
       },
       error => {
         console.error('Error fetching trailblazers:', error);
@@ -95,6 +102,12 @@ export class TrailblazerComponent {
       teams => {
         console.log('Teams fetched:', teams);
         this.teams = teams;
+        this.teams.forEach(team => {
+          team.trailBlazers.forEach(trailBlazer => {
+            trailBlazer.showDetails = false; // Initialize showDetails property
+          });
+        });
+        console.log('Teams assigned:', this.teams);
       },
       error => {
         console.error('Error fetching teams:', error);

@@ -21,7 +21,7 @@ exports.createTeam = asyncHandler(async (req, res, next) => {
     const teamData = {
         username: username,
         name: name,
-        trailBlazers: teamMembers.map(member => member._id)
+        trailBlazers: teamMembers
     };
     
     const teamDB = new Team(teamData);
