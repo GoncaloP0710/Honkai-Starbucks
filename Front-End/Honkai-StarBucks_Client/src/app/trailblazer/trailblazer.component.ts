@@ -16,6 +16,9 @@ export class TrailblazerComponent {
   searchTerm: string = '';
   selectedTrailBlazerId: string | null = null; // Add property to track selected Trailblazer
   viewMode: 'trailblazers' | 'teams' = 'trailblazers'; // Add view mode property
+  showModal: boolean = false; // Add property to control modal visibility
+  selectedTrailBlazers: TrailBlazer[] = []; // Add property to store selected trailblazers for the team
+  newTeamName: string = ''; // Add property to store the new team name
 
   constructor(private userService: UserService, private trailblazerService: TrailblazerService) {
     this.trailLBlazers = new Map<[string, string], TrailBlazer>();
@@ -115,12 +118,20 @@ export class TrailblazerComponent {
     );
   }
 
-  addTeam(teamName: string, trailBlazers: TrailBlazer[]): void {
-    console.log(`Adding team with name: ${teamName}`);
-    this.trailblazerService.addTeam(this.username, trailBlazers, teamName).subscribe(
+  addTeam(): void {
+    if (this.selectedTrailBlazers.length < 1 || this.selectedTrailBlazers.length > 4) {
+      console.error('You must select between 1 and 4 trailblazers.');
+      return;
+    }
+
+    console.log(`Adding team with name: ${this.newTeamName}`);
+    this.trailblazerService.addTeam(this.username, this.selectedTrailBlazers, this.newTeamName).subscribe(
       () => {
         console.log('Team added');
         this.fetchTeams(this.username);
+        this.showModal = false; // Close the modal
+        this.selectedTrailBlazers = []; // Reset selected trailblazers
+        this.newTeamName = ''; // Reset team name
       },
       error => {
         console.error('Error adding team:', error);
@@ -138,5 +149,20 @@ export class TrailblazerComponent {
         console.error('Error removing team:', error);
       }
     );
+  }
+
+  // Method to toggle the modal visibility
+  toggleModal(): void {
+    this.showModal = !this.showModal;
+  }
+
+  // Method to select or deselect a trailblazer for the new team
+  toggleTrailBlazerSelection(trailBlazer: TrailBlazer): void {
+    const index = this.selectedTrailBlazers.findIndex(tb => tb._id === trailBlazer._id);
+    if (index > -1) {
+      this.selectedTrailBlazers.splice(index, 1);
+    } else if (this.selectedTrailBlazers.length < 4) {
+      this.selectedTrailBlazers.push(trailBlazer);
+    }
   }
 }

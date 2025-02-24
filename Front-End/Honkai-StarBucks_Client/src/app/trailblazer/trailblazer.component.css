@@ -178,3 +178,8 @@
   background-color: #ff79c6;
   color: rgba(30, 30, 46, 0.9);
 }
+
+/* Selected Trailblazer Styling */
+.initial-card.selected {
+  border: 2px solid #ff79c6;
+} 

@@ -40,7 +40,7 @@ exports.getTeamsWithUsername = asyncHandler(async (req, res, next) => {
     const { username } = req.query;
 
     try {
-        const teams = await Team.find({ username: username });
+        const teams = await Team.find({ username: username }).populate('trailBlazers');
         res.json(teams);
     } catch (error) {
         console.error('Error getting teams:', error);
