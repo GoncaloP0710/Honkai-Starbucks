@@ -1,58 +1,160 @@
-  /* Number Input Button Container */
-  .number-input-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: rgba(30, 30, 46, 0.9);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    width: fit-content;
-    margin: 10px auto;
+/* Parent Container for Number Input and Search Bar */
+.input-search-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Add space between the number input and search bar */
+  margin: 70px auto 20px auto; /* Add margin to create space above and below the container */
+}
 
-    position: relative;
-    top: 50px;
-    left: -15px;
-  }
+/* Top Container for Input and Toggle Buttons */
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 30px auto 90px auto; /* Add margin to create space above and below the container */
+}
 
-  /* Number Input Field */
-  .number-input {
-    background-color: rgba(40, 40, 56, 1);
-    border: none;
-    color: #ff79c6;
-    padding: 8px;
-    border-radius: 4px;
-    width: 150px;
-    text-align: center;
-    appearance: textfield; /* Standard */
-    -moz-appearance: textfield; /* Firefox */
-  }
-  
-  .number-input::-webkit-outer-spin-button,
-  .number-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+/* Number Input Button Container */
+.number-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(30, 30, 46, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+}
 
-  .number-input:focus {
-    outline: none;
-    box-shadow: 0px 0px 5px #ff79c6;
-  }
+/* Search Bar Container */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(30, 30, 46, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+}
 
-  /* Submit Button */
-  .submit-button {
-    background-color: rgba(30, 30, 46, 0.9);
-    color: #ff79c6;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease;
-  }
+/* Number Input Field */
+.number-input,
+.search-bar {
+  background-color: rgba(40, 40, 56, 1);
+  border: none;
+  color: #ff79c6;
+  padding: 8px;
+  border-radius: 4px;
+  width: 150px;
+  text-align: center;
+  appearance: textfield; /* Standard */
+  -moz-appearance: textfield; /* Firefox */
+}
 
-  .submit-button:hover {
-    background-color: #ff79c6;
-    color: rgba(30, 30, 46, 0.9);
-  }
+.number-input::-webkit-outer-spin-button,
+.number-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.number-input:focus,
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #ff79c6;
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: rgba(30, 30, 46, 0.9);
+  color: #ff79c6;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ff79c6;
+  color: rgba(30, 30, 46, 0.9);
+}
+
+/* Toggle Button Container */
+.toggle-button-container {
+  display: flex;
+  align-items: center; /* Align items vertically centered */
+  gap: 10px;
+  margin-top: 0; /* Remove top margin */
+  margin-right: 20px; /* Add right margin */
+}
+
+/* Toggle Button Styling */
+.toggle-button {
+  background-color: rgba(30, 30, 46, 0.9);
+  color: #ff79c6;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+.toggle-button.active {
+  background-color: #ff79c6;
+  color: rgba(30, 30, 46, 0.9);
+}
+
+/* Initial Card Styling */
+.initial-card {
+  background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+  margin-bottom: 25px;
+  border-radius: 8px;
+  width: 150px; /* Set a fixed width */
+  padding: 10px; /* Optional: Add padding for better appearance */
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative; /* Ensure positioning for the remove button */
+}
+
+/* Character Icon Styling */
+.character-icon {
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  object-fit: cover; /* Crop the image if needed */
+  border-radius: 50%; /* Make the image circular */
+}
+
+/* Text Styling for Trailblazer Name */
+.initial-card span {
+  color: #ff79c6; /* Change this to your desired color */
+}
+
+/* Flex container for the list of Trailblazers */
+.trailblazers-list,
+.teams-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  gap: 10px; /* Add space between the cards */
+  justify-content: center; /* Center the cards horizontally */
+}
+
+/* Remove Button Styling */
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #ff5f56;
+  border: none;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

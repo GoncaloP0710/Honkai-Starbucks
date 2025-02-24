@@ -11,7 +11,11 @@ import { TrailblazerService } from '../trailblazer.service';
 export class TrailblazerComponent {
   teams: Teams[] = [];
   trailLBlazers: Map<[string, string], TrailBlazer>;
+  filteredTrailBlazers: TrailBlazer[] = [];
   username: string = '';
+  searchTerm: string = '';
+  selectedTrailBlazerId: string | null = null; // Add property to track selected Trailblazer
+  viewMode: 'trailblazers' | 'teams' = 'trailblazers'; // Add view mode property
 
   constructor(private userService: UserService, private trailblazerService: TrailblazerService) {
     this.trailLBlazers = new Map<[string, string], TrailBlazer>();
@@ -24,6 +28,7 @@ export class TrailblazerComponent {
 
   addTrailBlazer(trailBlazer: TrailBlazer): void {
     this.trailLBlazers.set([trailBlazer.username, trailBlazer._id], trailBlazer);
+    this.filterTrailblazers();
   }
 
   removeTrailBlazer(_id: string, username: string): void {
@@ -33,6 +38,7 @@ export class TrailblazerComponent {
           () => {
             console.log('Trailblazer removed:', trailBlazer);
             this.trailLBlazers.delete(key);
+            this.filterTrailblazers();
           },
           error => {
             console.error('Error removing trailblazer:', error);
@@ -68,6 +74,17 @@ export class TrailblazerComponent {
         console.error('Error fetching trailblazers:', error);
       }
     );
+  }
+
+  filterTrailblazers(): void {
+    this.filteredTrailBlazers = Array.from(this.trailLBlazers.values()).filter(trailBlazer =>
+      trailBlazer.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
+  // Method to select a Trailblazer
+  selectTrailBlazer(trailBlazerId: string): void {
+    this.selectedTrailBlazerId = this.selectedTrailBlazerId === trailBlazerId ? null : trailBlazerId;
   }
 
   // ================== Teams ==================
