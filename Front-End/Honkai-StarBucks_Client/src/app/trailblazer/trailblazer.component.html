@@ -1,6 +1,6 @@
 <!-- Parent Container for Number Input and Search Bar -->
 <div class="top-container flex items-center justify-between w-full mx-auto">
-  <div class="input-search-container flex items-center gap-4">
+  <div class="input-search-container flex items-center gap-4" *ngIf="viewMode === 'trailblazers'">
     <!-- Number Input Button Container with Tailwind -->
     <div class="number-input-container flex items-center gap-2">
       <input type="number" class="number-input w-[100px] text-center" placeholder="Enter uid" #uidInput />
@@ -68,9 +68,8 @@
 
 <!-- List of Teams -->
 <div *ngIf="viewMode === 'teams'" class="teams-list mt-4">
+  <button class="create-team-button">Create Team</button>
   <div *ngFor="let team of teams" class="team-item">
-    <h3>{{ team.name }}</h3>
-    <div *ngIf="team.trailBlazers.length === 0">No trailblazers in this team</div>
     <div *ngFor="let trailBlazer of team.trailBlazers" class="trailblazer-item">
       <!-- Initial Card -->
       <div class="initial-card relative" (mouseenter)="trailBlazer.showDetails = true" (mouseleave)="trailBlazer.showDetails = false">
