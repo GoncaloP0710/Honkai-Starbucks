@@ -3,21 +3,21 @@
   display: flex;
   align-items: center;
   gap: 20px; /* Add space between the number input and search bar */
-  margin: 70px auto 20px auto; /* Add margin to create space above and below the container */
+  margin-bottom: 35px; /* Add margin to create space below the container */
 }
 
 /* Top Container for Input and Toggle Buttons */
 .top-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Align items to the left */
   width: 100%;
-  margin: 30px auto 90px auto; /* Add margin to create space above and below the container */
+  margin: 80px 0 0 0; /* Add margin to move the container down */
 }
 
 /* Number Input Button Container */
 .number-input-container {
   display: flex;
-  align-items: center;
+  align-items: center; /* Align items vertically centered */
   gap: 10px;
   background-color: rgba(30, 30, 46, 0.9);
   padding: 10px;
@@ -29,7 +29,7 @@
 /* Search Bar Container */
 .search-bar-container {
   display: flex;
-  align-items: center;
+  align-items: center; /* Align items vertically centered */
   gap: 10px;
   background-color: rgba(30, 30, 46, 0.9);
   padding: 10px;
@@ -87,11 +87,8 @@
   display: flex;
   align-items: center; /* Align items vertically centered */
   gap: 10px;
-  position: fixed; /* Fix the position relative to the viewport */
-  top: 80px; /* Add top margin */
-  right: 20px; /* Add right margin */
-  margin-top: 0; /* Remove top margin */
-  margin-right: 20px; /* Add right margin */
+  margin-left: auto; /* Push the container to the right */
+  padding: 10px; /* Add padding if needed */
 }
 
 /* Toggle Button Styling */
@@ -143,6 +140,7 @@
   flex-wrap: wrap; /* Allow wrapping to the next line */
   gap: 10px; /* Add space between the cards */
   justify-content: center; /* Center the cards horizontally */
+  margin-top: 20px; /* Add margin to create space above the list */
 }
 
 /* Remove Button Styling */
