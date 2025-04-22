@@ -84,7 +84,10 @@
   <div class="teams-container flex flex-wrap gap-4">
     <div *ngFor="let team of teams" class="team-item border p-4 rounded shadow-md">
       <h3>{{ team.name }}</h3>
-      <button class="remove-button" (click)="removeTeam(team._id)">Remove Team</button>
+      <!-- Delete Team Button -->
+      <button class="delete-team-button bg-red-500 text-white px-4 py-2 rounded mt-4" (click)="removeTeam(team._id)">
+        Delete Team
+      </button>
       <div class="team-trailblazers flex gap-4">
         <div *ngFor="let trailBlazer of team.trailBlazers" class="trailblazer-item">
           <!-- Initial Card -->
@@ -129,7 +132,6 @@
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </div>

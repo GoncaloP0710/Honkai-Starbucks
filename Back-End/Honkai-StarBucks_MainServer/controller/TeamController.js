@@ -43,8 +43,15 @@ exports.getTeamsWithUsername = async (req, res) => {
 exports.deleteTeam = async (req, res) => {
     const { id } = req.query;
 
+    if (!id) {
+        console.error('Team ID is undefined');
+        return;
+    }
+
     try {
-        const response = await axios.delete(`http://localhost:9000/team?id=${id}`);
+        console.log('Deleting team with ID:', id);
+        // Send the delete request to the server
+        const response = await axios.delete(`http://localhost:9000/team/id?id=${id}`);
         return res.json(response.data.message);
     } catch (error) {
         console.error('Error deleting team:', error);

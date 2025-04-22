@@ -51,6 +51,6 @@ export class TrailblazerService {
 
   removeTeam(id: string): Observable<void> {
     console.log(`Removing Team with ID: ${id}`);
-    return this.http.delete<void>(`${this.apiUrl}/team/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/team/delete?id=${id}`);
   }
 }
