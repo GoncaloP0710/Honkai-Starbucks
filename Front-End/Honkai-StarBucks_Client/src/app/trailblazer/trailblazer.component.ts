@@ -160,8 +160,10 @@ export class TrailblazerComponent {
   toggleTrailBlazerSelection(trailBlazer: TrailBlazer): void {
     const index = this.selectedTrailBlazers.findIndex(tb => tb._id === trailBlazer._id);
     if (index > -1) {
+      // If already selected, remove it
       this.selectedTrailBlazers.splice(index, 1);
-    } else if (this.selectedTrailBlazers.length < 4) {
+    } else {
+      // Otherwise, add it to the selected list
       this.selectedTrailBlazers.push(trailBlazer);
     }
   }

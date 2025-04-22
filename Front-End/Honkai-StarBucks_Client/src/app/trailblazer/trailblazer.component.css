@@ -195,3 +195,102 @@
 .initial-card.selected {
   padding-top: 2rem; /* Or whatever value you prefer */
 }  
+
+.team-item {
+  background-color: rgba(30, 30, 46, 0.9); /* Set your desired background color */
+  position: relative; /* Make this a positioned ancestor */
+  padding: 20px; /* Optional: Add padding for better spacing */
+  overflow: visible; /* Prevent clipping of the detailed card */
+}
+
+.team-item h3 {
+  color: #ff79c6; /* Replace with your desired color */
+  position: relative;
+  overflow: visible;
+}
+
+.teams-container {
+  display: flex; /* Use Flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Add spacing between items */
+}
+
+.team-item {
+  flex: 0 0 calc(30% - 20px); /* Each item takes 50% of the width minus the gap */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.modal {
+  position: fixed; /* Position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex; /* Use flexbox for layout */
+  align-items: flex-start; /* Align the modal at the top */
+  justify-content: center; /* Center horizontally */
+  z-index: 1000; /* Ensure it appears above other elements */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-top: 20px; /* Add spacing at the top */
+}
+
+.team-name-input {
+  color: #8be9fd; /* Light blue text */
+  margin-right: 50px; /* Add space to the right */
+}
+
+.modal-content h2 {
+  color: #8be9fd; /* Replace with your desired color */
+  margin-bottom: 10px; /* Add space below the heading */
+  text-align: center; /* Center the heading */
+  font-size: 48px; /* Adjust font size */
+  font-weight: bold; /* Make it bold */
+}
+
+.modal-content {
+  background-color: rgba(30, 30, 46, 0.268); /* Dark background with 80% opacity */
+  padding: 20px; /* Add padding inside the modal */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  width: 90%; /* Make it responsive */
+  margin: 0 auto; /* Center horizontally */
+}
+
+.go-back-button {
+  background-color: #ff5e5661; /* Red background */
+  color: #8be9fd; /* White text */
+  padding: 10px 20px; /* Add padding for better spacing */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; /* Add spacing above the button */
+  font-weight: bold; /* Make the text bold */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.go-back-button:hover {
+  background-color: #ff3b3b6f; /* Darker red on hover */
+}
+
+.initial-card.selected {
+  background-color: #8be8fd82; /* Change the background to green */
+  color: white; /* Optional: Change text color for better contrast */
+  border: 2px solid #ffffff; /* Optional: Add a white border */
+}
+
+.close-button {
+  position: absolute; /* Position the close button */
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-button:hover {
+  color: red; /* Change color on hover */
+}
