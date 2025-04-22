@@ -90,7 +90,9 @@ export interface TrailBlazer {
   baseStats: BaseStats;
   addedStats: AddedStats;
   multipliersStats: MultipliersStats;
-  showDetails?: boolean; // Add this property
+  showDetails?: boolean;
+  detailsTop?: number;
+  detailsLeft?: number;
 }
 
 export interface Teams {

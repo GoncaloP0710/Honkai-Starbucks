@@ -28,14 +28,23 @@
 <div *ngIf="viewMode === 'trailblazers'" class="trailblazers-list mt-4">
   <div *ngFor="let trailBlazer of filteredTrailBlazers" class="trailblazer-item">
     <!-- Initial Card -->
-    <div class="initial-card relative" (mouseenter)="trailBlazer.showDetails = true" (mouseleave)="trailBlazer.showDetails = false">
-      <img [src]="'../assets/Images/Icons/' + trailBlazer.name + '.webp'" alt="Trailblazer Photo" class="character-icon mx-auto mb-2">
+    <div
+      class="initial-card relative"
+      (mouseenter)="trailBlazer.showDetails = true; setDetailsPosition($event, trailBlazer)"
+      (mouseleave)="trailBlazer.showDetails = false"
+    >
+      <img [src]="'../assets/Images/Icons/' + trailBlazer.name + '.webp'" alt="Trailblazer Photo" class="character-icon mx-auto mb-2" />
       <span>{{ trailBlazer.name }} ({{ trailBlazer.username }})</span>
       <button class="remove-button" (click)="removeTrailBlazer(trailBlazer._id, trailBlazer.name)"></button>
     </div>
 
     <!-- Detailed Card -->
-    <div *ngIf="trailBlazer.showDetails" class="detailed-card p-4 border rounded shadow-md absolute top-0 left-[220px] bg-white">
+    <div
+      *ngIf="trailBlazer.showDetails"
+      class="detailed-card p-4 border rounded shadow-md absolute bg-white"
+      [style.top.px]="trailBlazer.detailsTop"
+      [style.left.px]="trailBlazer.detailsLeft"
+    >
       <h3>{{ trailBlazer.name }}'s Details</h3>
       <p><strong>Final Stats:</strong></p>
       <ul>
@@ -75,6 +84,7 @@
   <div class="teams-container flex flex-wrap gap-4">
     <div *ngFor="let team of teams" class="team-item border p-4 rounded shadow-md">
       <h3>{{ team.name }}</h3>
+      <button class="remove-button" (click)="removeTeam(team._id)">Remove Team</button>
       <div class="team-trailblazers flex gap-4">
         <div *ngFor="let trailBlazer of team.trailBlazers" class="trailblazer-item">
           <!-- Initial Card -->
@@ -119,7 +129,7 @@
           </div>
         </div>
       </div>
-      <button class="remove-button" (click)="removeTeam(team._id)">Remove Team</button>
+      
     </div>
   </div>
 </div>

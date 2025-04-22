@@ -165,4 +165,54 @@ export class TrailblazerComponent {
       this.selectedTrailBlazers.push(trailBlazer);
     }
   }
+
+  setDetailsPosition(event: MouseEvent, trailBlazer: TrailBlazer): void {
+    const element = event.target as HTMLElement;
+    const rect = element.getBoundingClientRect();
+    const spacing = 10;
+  
+    // Temporarily assign a default position to trigger rendering
+    trailBlazer.detailsTop = rect.top + window.scrollY;
+    trailBlazer.detailsLeft = rect.right + spacing + window.scrollX;
+    trailBlazer.showDetails = true;
+  
+    // Wait for the popup to be rendered
+    setTimeout(() => {
+      const popup = document.querySelector('.detailed-card') as HTMLElement;
+      if (!popup) return;
+  
+      const popupRect = popup.getBoundingClientRect();
+      const popupWidth = popupRect.width;
+      const popupHeight = popupRect.height;
+  
+      // Start with desired positions
+      let topPosition = rect.top + window.scrollY + (rect.height / 2) - (popupHeight / 2);
+      let leftPosition = rect.right + spacing + window.scrollX;
+  
+      // Check right overflow
+      if ((leftPosition + popupWidth) > window.innerWidth + window.scrollX) {
+        // Push the popup to the left if it overflows
+        leftPosition = window.innerWidth - popupWidth - 500;
+      }
+  
+      // Check top overflow
+      if (topPosition < window.scrollY) {
+        topPosition = window.scrollY + spacing;
+      }
+  
+      // Check bottom overflow
+      const bottomEdge = topPosition + popupHeight;
+      const maxVisibleBottom = window.scrollY + window.innerHeight;
+      if (bottomEdge > maxVisibleBottom) {
+        topPosition = maxVisibleBottom - popupHeight - 100;
+      }
+  
+      // Apply corrected positions
+      trailBlazer.detailsTop = topPosition;
+      trailBlazer.detailsLeft = leftPosition;
+    }, 0);
+  }
+  
+  
+  
 }
