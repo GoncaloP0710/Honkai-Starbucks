@@ -1,0 +1,95 @@
+.terminals-container {
+  display: flex; /* Use Flexbox to align terminals side by side */
+  justify-content: space-between; /* Add space between the terminals */
+  align-items: flex-start; /* Align terminals at the top */
+  margin: 50px auto 0; /* Add a margin at the top to push the terminals down */
+  padding: 0 20px; /* Add padding on the sides for better spacing */
+}
+
+.terminal-card-Services {
+  background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+  color: #cdd9e5; /* Light text color */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  position: relative;
+}
+
+.terminal-card-Services:first-child {
+  margin-top: 20px; /* Push the first terminal down slightly */
+}
+
+.terminal-card-Services:last-child {
+  margin-top: 50px; /* Push the second terminal down further */
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-buttons span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
+
+.terminal-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff79c6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.terminal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Ensure the content takes the full width */
+}
+
+.terminal-text {
+  font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
+  font-size: 36px; /* Adjust font size */
+  white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+  color: #8be9fd; /* Light blue text */
+}
+
+.services-list {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  font-size: 16px; /* Adjust font size for the list items */
+  line-height: 1.8; /* Add spacing between lines for better readability */
+}
+
+.services-list li {
+  margin-bottom: 10px; /* Add spacing between services */
+  display: flex;
+  align-items: center; /* Align icon and text */
+  color: #8be9fd; /* Light text color */
+}
+
+.services-list i {
+  margin-right: 10px; /* Add spacing between the icon and text */
+  color: #ff79c6; /* Icon color */
+  font-size: 20px; /* Adjust icon size */
+}
+
+.services-list strong {
+  color: #ff79c6; /* Highlighted text color */
+}

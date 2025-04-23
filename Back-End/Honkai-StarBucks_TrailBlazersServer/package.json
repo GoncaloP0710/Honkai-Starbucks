@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "axios": "^1.7.7",
-    "starrail.js": "^1.9.2"
-  }
-}

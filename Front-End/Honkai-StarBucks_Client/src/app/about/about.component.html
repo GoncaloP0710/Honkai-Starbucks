@@ -1,1 +1,19 @@
-<p>about works!</p>
+<div *ngFor="let terminal of terminals; let i = index">
+    <mat-card class="terminal-card-Jingliu" [style.top.px]="terminal.top" [style.left.px]="terminal.left">
+      <mat-card-header cdkDragHandle>
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="close"></span>
+            <span class="minimize"></span>
+            <span class="maximize"></span>
+          </div>
+          <span class="terminal-title">Terminal {{ i + 1 }}</span>
+        </div>
+      </mat-card-header>
+      <mat-card-content class="terminal-content">
+        <pre class="terminal-text">
+          <span [innerHTML]="terminal.content"></span>
+        </pre>
+      </mat-card-content>
+    </mat-card>
+  </div>

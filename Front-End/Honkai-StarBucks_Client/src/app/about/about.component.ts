@@ -3,8 +3,39 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-
+  terminals = [
+    {
+      top: 80,
+      left: -600,
+      content: 'The frontend of the application is built using <strong>AngularJS</strong>, providing a dynamic and responsive user interface. It communicates with backend microservices to deliver a seamless experience for users as they navigate through the game’s login, battle, and character management systems.'
+    },
+    {
+      top: 150,
+      left: 10,
+      content: '<strong>Honkai-StarBucks_MainServer:</strong> This is the entry point of the system. It acts as a central router that handles initial requests from the frontend and delegates them to the appropriate microservices. It helps decouple the frontend from direct dependencies on individual services, promoting scalability and maintainability.'
+    },
+    {
+      top: 230,
+      left: 350,
+      content: '<strong>Honkai-StarBucks_LoginServer</strong>: Responsible for handling user authentication and account-related operations, this service connects to a MongoDB database to store and manage login credentials. Currently, database encryption is pending but planned for future implementation to ensure user data security.'
+    },
+    {
+      top: -200,
+      left: -680,
+      content: '<strong>Honkai-StarBucks_TrailBlazersServer</strong>: This microservice manages player data and team configurations. It connects to MongoDB to store detailed information about each user’s characters and their team setups. Additionally, it integrates with starrail.js to retrieve game-specific data. It supports features like creating and deleting teams...'
+    },
+    {
+      top: -900,
+      left: 200,
+      content: '<strong>Honkai-StarBucks_BattleServer</strong>: Currently under development, this microservice will encapsulate all battle-related logic. It will be responsible for processing combat mechanics, handling real-time battle scenarios, and ensuring fair and balanced gameplay outcomes. Once implemented, it will form the core gameplay loop of the application.'
+    },
+    {
+      top: -800,
+      left: 655,
+      content: '<strong>Inter-service Communication</strong>: Microservices currently communicate using Axios for HTTP-based messaging. There are plans to upgrade to gRPC, which will provide faster, more efficient communication and better support for future scaling needs.'
+    },    
+  ];
 }
