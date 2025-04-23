@@ -15,9 +15,9 @@ export class AppComponent {
   title = 'Honkai-StarBucks_Client';
 
   menuItems = [
-    { label: 'About', icon: 'info' },
-    { label: 'Services', icon: 'build' },
-    { label: 'Contact', icon: 'contact_mail' },
+    { label: 'About', icon: 'info', route: '/about' },
+    { label: 'Services', icon: 'build', route: '/services' },
+    { label: 'Contact', icon: 'contact_mail', route: '/contact' },
     { label: 'Profile', icon: 'account_circle', route: '/login' },
   ];
 
@@ -26,6 +26,7 @@ export class AppComponent {
     { label: 'TrailBlazer', icon: 'directions_run', route: '/trailblazer' },  // or 'star'
     { label: 'Battle', icon: 'sports_mma', route: '/battle' },  // or 'emoji_fight'
     { label: 'Tier-Lists', icon: 'list', route: '/tier-lists' },  // or 'checklist'
+  
   ];
   
   onMenuClick(item: any) {

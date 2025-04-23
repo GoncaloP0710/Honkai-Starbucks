@@ -199,8 +199,11 @@
 .team-item {
   background-color: rgba(30, 30, 46, 0.9); /* Set your desired background color */
   position: relative; /* Make this a positioned ancestor */
-  padding: 20px; /* Optional: Add padding for better spacing */
+  padding: 20px; /* Add padding for better spacing */
   overflow: visible; /* Prevent clipping of the detailed card */
+  border: 2px solid #ff79c6; /* Add a border with your desired color */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for depth */
 }
 
 .team-item h3 {
@@ -237,12 +240,12 @@
 }
 
 .team-name-input {
-  color: #8be9fd; /* Light blue text */
+  color: #ff79c6; /* Light blue text */
   margin-right: 50px; /* Add space to the right */
 }
 
 .modal-content h2 {
-  color: #8be9fd; /* Replace with your desired color */
+  color: #ff79c6; /* Replace with your desired color */
   margin-bottom: 10px; /* Add space below the heading */
   text-align: center; /* Center the heading */
   font-size: 48px; /* Adjust font size */
@@ -260,7 +263,7 @@
 
 .go-back-button {
   background-color: #ff5e5661; /* Red background */
-  color: #8be9fd; /* White text */
+  color: #000000; /* White text */
   padding: 10px 20px; /* Add padding for better spacing */
   border: none; /* Remove border */
   border-radius: 5px; /* Rounded corners */

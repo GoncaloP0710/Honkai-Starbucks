@@ -60,6 +60,7 @@ const pathMap = {
     "Knight": "Preservation",
     "Priest": "Abundance",
     "Unknown": "General"
+    
 };
 
 function getPathCounterpart(pathId) {

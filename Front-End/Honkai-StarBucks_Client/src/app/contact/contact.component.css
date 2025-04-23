@@ -1,0 +1,128 @@
+.terminal-card-Jingliu {
+    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+    color: #cdd9e5; /* Light text color */
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  
+    position: relative;
+    top: 50px;
+    left: -15px;
+  }
+  
+  .terminal-card-Fastfetch {
+    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
+    color: #cdd9e5; /* Light text color */
+    border-radius: 8px;
+    padding: 10px;
+    margin: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    
+  
+    position: absolute;
+    top: 50px;
+    left: 530px;
+  }
+  
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .terminal-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .terminal-buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+  }
+  
+  .close { background-color: #ff5f56; }
+  .minimize { background-color: #ffbd2e; }
+  .maximize { background-color: #27c93f; }
+  
+  .terminal-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff79c6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+  
+  .fastfetch {
+    font-family: 'Courier New', Courier, monospace;
+    color: #8be9fd; /* Light blue text */
+    white-space: pre-wrap;
+    line-height: 1.4;
+  }
+  
+  .ascii-logo {
+    color: #ff79c6; /* Light pink color for ASCII logo */
+  }
+  
+  .terminal-image {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .terminal-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    color: #8be9fd; /* Light blue text */
+  }
+  
+  .cdk-drag {
+    position: absolute; /* Allows the element to move freely */
+    top: 50px;
+    left: 50px;
+  }
+  
+  .links-container {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Add spacing between links */
+    overflow: visible; /* Prevent content from being clipped */
+  }
+  
+  .terminal-link {
+    display: flex; /* Align icon and text horizontally */
+    color: #8be9fd; /* Light blue text */
+    text-decoration: none; /* Remove underline */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px; /* Adjust font size */
+    padding: 10px; /* Add padding for better click area */
+    background-color: rgba(255, 255, 255, 0.1); /* Add a subtle background */
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Ensure long words break properly */
+  }
+  
+  .terminal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+    width: 100%; /* Ensure the content takes the full width */
+  }
+  
+  .mat-card-content {
+    width: 100%; /* Ensure the card content takes the full width */
+    overflow: visible; /* Prevent content from being clipped */
+  }
+
+  .cdk-drag {
+    width: 165%; /* Ensure the card takes the full width */
+  }

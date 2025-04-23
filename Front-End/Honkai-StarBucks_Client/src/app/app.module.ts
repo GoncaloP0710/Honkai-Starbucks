@@ -15,12 +15,22 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { TierListComponent } from './tier-list/tier-list.component';
+import { AboutComponent } from './about/about.component';
+import { ServicesComponent } from './services/services.component';
+import { ContactComponent } from './contact/contact.component';
+import { BattleComponent } from './battle/battle.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'trailblazer', component: TrailblazerComponent },
     { path: 'login', component: LoginComponent },
     { path: 'tier-lists', component: TierListComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'services', component: ServicesComponent },
+    { path: 'contact', component: ContactComponent },
+    { path: 'battle', component: BattleComponent },
+    { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({
@@ -30,6 +40,11 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     TierListComponent,
+    AboutComponent,
+    ServicesComponent,
+    ContactComponent,
+    BattleComponent,
+    ProfileComponent,
   ],
   imports: [
     FormsModule,
