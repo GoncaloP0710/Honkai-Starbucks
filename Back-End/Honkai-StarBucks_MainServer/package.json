@@ -4,7 +4,8 @@
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
     "node-cache": "^5.1.2",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "axios": "^1.7.2"
   },
   "name": "enkanet",
   "version": "1.0.0",
