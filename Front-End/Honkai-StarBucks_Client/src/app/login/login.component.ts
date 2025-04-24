@@ -77,7 +77,9 @@ export class LoginComponent {
     this.username = '';
     this.password = '';
     this.loginMessage = 'Logged out';
-    console.log('Logged out');
+    this.userService.setUsername(''); // Clear the username in the UserService
+    localStorage.removeItem('username'); // Remove username from localStorage if stored there
+    console.log('Logged out and cleared cache');
   }
 
   wait(): void {

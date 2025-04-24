@@ -1,3 +1,4 @@
+<!-- Show login terminal if the user is not logged in -->
 <div *ngIf="getUsername() === ''" cdkDrag>
   <mat-card class="terminal-card-login">
     <mat-card-header cdkDragHandle>
@@ -21,7 +22,29 @@
         <button class="login-button" (click)="login()">Login</button>
 
         <label *ngIf="loginMessage" class="login-message" [ngClass]="loginMessageType">{{ loginMessage }}</label>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
 
+<!-- Show user terminal if the user is logged in -->
+<div *ngIf="getUsername() !== ''" cdkDrag>
+  <mat-card class="terminal-card-logged-in">
+    <mat-card-header cdkDragHandle>
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="close"></span>
+          <span class="minimize"></span>
+          <span class="maximize"></span>
+        </div>
+        <span class="terminal-title">User Terminal</span>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="terminal-content">
+      <div class="terminal-user">
+        <p>Welcome, <strong>{{ getUsername() }}</strong>!</p>
+        <p>You are now logged in.</p>
+        <button class="logout-button" (click)="logout()">Logout</button>
       </div>
     </mat-card-content>
   </mat-card>

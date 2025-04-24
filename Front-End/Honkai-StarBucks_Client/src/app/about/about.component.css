@@ -1,118 +1,72 @@
-.terminal-card-Jingliu {
-    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
-    color: #cdd9e5; /* Light text color */
-    border-radius: 8px;
-    padding: 10px;
-    max-width: 500px;
-    margin: auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+.terminal-container {
+  display: flex;
+  justify-content: center; /* Center the terminal horizontally */
+  padding: 20px;
   
-    position: relative;
-    top: 50px;
-    left: -15px;
-  }
-  
-  .terminal-card-Fastfetch {
-    background-color: rgba(30, 30, 46, 0.9); /* Dark background with 80% opacity */
-    color: #cdd9e5; /* Light text color */
-    border-radius: 8px;
-    padding: 10px;
-    max-width: 600px;
-    margin: auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  
-    position: absolute;
-    top: 50px;
-    left: 530px;
-  }
-  
-  .terminal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .terminal-buttons {
-    display: flex;
-    gap: 8px;
-  }
-  
-  .terminal-buttons span {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-bottom: 8px;
-  }
-  
-  .close { background-color: #ff5f56; }
-  .minimize { background-color: #ffbd2e; }
-  .maximize { background-color: #27c93f; }
-  
-  .terminal-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: #ff79c6;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
-  }
-  
-  .terminal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .fastfetch {
-    font-family: 'Courier New', Courier, monospace;
-    color: #8be9fd; /* Light blue text */
-    white-space: pre-wrap;
-    line-height: 1.4;
-  }
-  
-  .ascii-logo {
-    color: #ff79c6; /* Light pink color for ASCII logo */
-  }
-  
-  .terminal-image {
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .terminal-text {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    white-space: pre-wrap;
-    color: #8be9fd; /* Light blue text */
-  }
-  
-  .cdk-drag {
-    position: absolute; /* Allows the element to move freely */
-    top: 50px;
-    left: 50px;
-  }
+}
 
-  .position-controls {
-    margin: 10px 0;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .position-controls label {
-    font-size: 14px;
-    color: #cdd9e5; /* Light text color */
-  }
-  
-  .position-controls input {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #8be9fd; /* Light blue border */
-    border-radius: 4px;
-    background-color: rgba(30, 30, 46, 0.9); /* Dark background */
-    color: #cdd9e5; /* Light text color */
-    font-family: 'Courier New', Courier, monospace;
-  }
+.terminal-card {
+  background-color: rgba(30, 30, 46, 0.9); /* Dark background */
+  color: #cdd9e5; /* Light text color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
+  max-width: 800px; /* Limit the width of the terminal */
+  width: 100%; /* Make it responsive */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  top: 100px;
+
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-buttons span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
+
+.terminal-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff79c6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.terminal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.terminal-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #8be9fd; /* Light blue text */
+  line-height: 1.6; /* Improve readability */
+}
+
+.terminal-text p {
+  margin-bottom: 20px; /* Add spacing between paragraphs */
+}
+
+.terminal-text strong {
+  color: #ff79c6; /* Pink color for emphasis */
+  font-weight: bold; /* Ensure the text is bold */
+}

@@ -19,7 +19,6 @@ import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { BattleComponent } from './battle/battle.component';
-import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -30,7 +29,6 @@ const routes: Routes = [
     { path: 'services', component: ServicesComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'battle', component: BattleComponent },
-    { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({
@@ -44,7 +42,6 @@ const routes: Routes = [
     ServicesComponent,
     ContactComponent,
     BattleComponent,
-    ProfileComponent,
   ],
   imports: [
     FormsModule,
