@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const axios = require('axios');
 const User = require('../models/User');
+const argon2 = require('argon2');
 
 exports.register = asyncHandler(async (req, res, next) => {
     console.log("Registering...");
@@ -11,9 +12,11 @@ exports.register = asyncHandler(async (req, res, next) => {
         return res.json({ message: "User already exists" });
     }
 
+    const hash = await argon2.hash("password");
+
     const newUser = new User({
         username,
-        password
+        password: hash,
     });
 
     await newUser.save();

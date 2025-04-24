@@ -3,6 +3,7 @@ const axios = require('axios');
 const User = require('../models/User');
 const node2fa = require('node-2fa');
 const nodemailer = require('nodemailer');
+const argon2 = require('argon2');
 
 exports.login = asyncHandler(async (req, res, next) => {
     console.log("Logging in...");
@@ -14,7 +15,10 @@ exports.login = asyncHandler(async (req, res, next) => {
 
         const user = await User.findOne({ username: username }).exec();
         console.log(user);
-        if (user.password !== password) {
+
+        const hash = await argon2.hash("password");
+
+        if (user.password !== hash) {
             return res.json({ message: "Password invalid" });
         }
 

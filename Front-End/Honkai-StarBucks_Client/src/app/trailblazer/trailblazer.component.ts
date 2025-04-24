@@ -10,7 +10,7 @@ import { TrailblazerService } from '../trailblazer.service';
 })
 export class TrailblazerComponent {
   teams: Teams[] = [];
-  trailLBlazers: Map<[string, string], TrailBlazer>;
+  trailLBlazers: Map<string, TrailBlazer>;
   filteredTrailBlazers: TrailBlazer[] = [];
   username: string = '';
   searchTerm: string = '';
@@ -21,7 +21,7 @@ export class TrailblazerComponent {
   newTeamName: string = ''; // Add property to store the new team name
 
   constructor(private userService: UserService, private trailblazerService: TrailblazerService) {
-    this.trailLBlazers = new Map<[string, string], TrailBlazer>();
+    this.trailLBlazers = new Map<string, TrailBlazer>();
     this.username = this.userService.getUsername();
     this.fetchTrailBlazersWithUsername(this.username);
     this.fetchTeams(this.username);
@@ -30,26 +30,38 @@ export class TrailblazerComponent {
   // ================== TrailBlazers ==================
 
   addTrailBlazer(trailBlazer: TrailBlazer): void {
+    // Construct a unique string key using the username and _id
+    const key = `${trailBlazer._id}`;
+  
+    // Check if the TrailBlazer already exists in the map
+    if (this.trailLBlazers.has(key)) {
+      console.log(`TrailBlazer with ID ${trailBlazer._id} and username ${trailBlazer.username} already exists.`);
+      return; // Exit if the TrailBlazer already exists
+    }
+  
+    // If not already in the list, add it
     trailBlazer.showDetails = false; // Initialize showDetails property
-    this.trailLBlazers.set([trailBlazer.username, trailBlazer._id], trailBlazer);
+    this.trailLBlazers.set(key, trailBlazer); // Add to the Map
     this.filterTrailblazers();
+    console.log(`TrailBlazer with ID ${trailBlazer._id} added.`);
   }
 
   removeTrailBlazer(_id: string, username: string): void {
-    this.trailLBlazers.forEach((trailBlazer, key) => {
-      if (trailBlazer._id === _id && trailBlazer.name === username) {
-        this.trailblazerService.removeTrailBlazer(_id, this.username).subscribe(
-          () => {
-            console.log('Trailblazer removed:', trailBlazer);
-            this.trailLBlazers.delete(key);
-            this.filterTrailblazers();
-          },
-          error => {
-            console.error('Error removing trailblazer:', error);
-          }
-        );
-      }
-    });
+    const key = `${_id}`; // Construct the string key
+    if (this.trailLBlazers.has(key)) {
+      this.trailblazerService.removeTrailBlazer(_id, this.username).subscribe(
+        () => {
+          console.log(`Trailblazer removed: ${key}`);
+          this.trailLBlazers.delete(key); // Remove from the Map
+          this.filterTrailblazers();
+        },
+        error => {
+          console.error('Error removing trailblazer:', error);
+        }
+      );
+    } else {
+      console.log(`TrailBlazer with key ${key} not found.`);
+    }
   }
 
   // Provide a uid of a player to fetch their trailblazers
@@ -59,7 +71,6 @@ export class TrailblazerComponent {
       trailBlazers => {
         console.log('Trailblazers fetched:', trailBlazers);
         trailBlazers.forEach(trailBlazer => {
-          trailBlazer.showDetails = false; // Initialize showDetails property
           this.addTrailBlazer(trailBlazer);
         });
       },
@@ -76,7 +87,6 @@ export class TrailblazerComponent {
       trailBlazers => {
         console.log('Trailblazers fetched:', trailBlazers);
         trailBlazers.forEach(trailBlazer => {
-          trailBlazer.showDetails = false; // Initialize showDetails property
           this.addTrailBlazer(trailBlazer);
         });
       },
