@@ -1,16 +1,16 @@
 #!/bin/bash
 
 echo "Starting BattleServer..."
-kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_BattleServer/BattleServer && node app.js" &
+kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_BattleServer && node app.js" &
 
 echo "Starting LoginServer..."
-kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_LoginServer/LoginServer && node app.js" &
+kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_LoginServer && node app.js" &
 
 echo "Starting MainServer..."
 kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_MainServer && node app.js" &
 
 echo "Starting TrailBlazersServer..."
-kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_TrailBlazersServer/TrailBlazersServer && node app.js" &
+kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_TrailBlazersServer && node app.js" &
 
 echo "Starting Front-End..."
 kitty --hold zsh -c "cd Front-End/Honkai-StarBucks_Client && ng serve" &

@@ -221,7 +221,7 @@ export class TrailblazerComponent {
       let leftPosition = rect.right + spacing + window.scrollX;
   
       // Check right overflow
-      if ((leftPosition + popupWidth) > window.innerWidth + window.scrollX) {
+      if ((leftPosition + popupWidth) > window.innerWidth + window.scrollX + 100) {
         // Push the popup to the left if it overflows
         leftPosition = window.innerWidth - popupWidth - 500;
       }

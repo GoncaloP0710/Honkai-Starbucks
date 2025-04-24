@@ -1,0 +1,62 @@
+{
+    "MOC": "2.6v1",
+    "name": "The Big Sleep",
+    "imagePath": "",
+    "buff": "After every attack launched by an ally, apply 1 stack of Memory Imprint to all allies. Allies in the Memory Imprint state deal 8.0% more DMG. This effect stacks up to 6.0 time(s). When Memory Imprint reaches max stacks, immediately deals 1 instance of DMG to all enemies based on a certain percentage of their respective Max HP.Remove all Memory Imprints from all allies at the start of every wave or Cycle.",
+    "enemies": [
+        {
+            "name": "Eclipse Wolftrooper",
+            "half": 1,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "name": "Howling Casket",
+            "half": 1,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "name": "Voidranger: Trampler",
+            "half": 1,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "name": "Howling Casket",
+            "half": 1,
+            "wave": 2,
+            "number": 1
+        },
+        {
+            "name": "Stellaron Hunter: Kafka",
+            "half": 1,
+            "wave": 2,
+            "number": 1
+        },
+        {
+            "name": "Silvermane Cannoneer",
+            "half": 2,
+            "wave": 1,
+            "number": 2
+        },
+        {
+            "name": "Blaze Out of Space",
+            "half": 2,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "name": "Silvermane Lieutenant",
+            "half": 2,
+            "wave": 1,
+            "number": 1
+        },
+        {
+            "name": "Ten Stonehearts: Aventurine of Stratagems",
+            "half": 2,
+            "wave": 2,
+            "number": 1
+        }
+    ]
+}

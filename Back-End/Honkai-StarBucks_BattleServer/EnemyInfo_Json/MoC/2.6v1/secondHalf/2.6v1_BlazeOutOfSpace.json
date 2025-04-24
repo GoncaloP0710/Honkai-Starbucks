@@ -1,0 +1,42 @@
+{
+    "name": "Blaze Out of Space",
+    "enemyId": 8003020,
+    "level": 95,
+    "health": 453905,
+    "phases": 1,
+    "defense": 1000,
+    "speed": 158.40,
+    "paths": [
+      {
+        "name": "Wind",
+        "percentage": 0.2
+      },
+      {
+        "name": "Physical",
+        "percentage": 0
+      },
+      {
+        "name": "Fire",
+        "percentage": 0.2
+      },
+      {
+        "name": "Lightning",
+        "percentage": 0.4
+      },
+      {
+        "name": "Ice",
+        "percentage": 0.2
+      },
+      {
+        "name": "Quantum ",
+        "percentage": 0.2
+      },
+      {
+        "name": "Imaginary",
+        "percentage": 0
+      }
+    ],
+    "statusResistance": 30.0,
+    "statusProbability": 36.0,
+    "imagePath": "Assets/Images/Monster_8003020.webp"
+  }
