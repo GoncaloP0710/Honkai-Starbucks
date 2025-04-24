@@ -17,6 +17,20 @@
     <button class="create-team-button" (click)="toggleModal()">Create Team</button>
   </div>
 
+  <div class="username-filter-container flex items-center gap-4" *ngIf="viewMode === 'trailblazers'">
+    <select
+      id="usernameFilter"
+      class="username-filter w-[200px] text-center"
+      [(ngModel)]="selectedUsername"
+      (change)="filterTrailblazersByUsername()"
+    >
+      <option value="">All Users</option>
+      <option *ngFor="let username of uniqueUsernames" [value]="username">
+        {{ username }}
+      </option>
+    </select>
+  </div>
+
   <!-- Toggle Button Container -->
   <div class="toggle-button-container">
     <button class="toggle-button" [class.active]="viewMode === 'trailblazers'" (click)="viewMode = 'trailblazers'">Trailblazers</button>
@@ -78,6 +92,8 @@
     </div>
   </div>
 </div>
+
+
 
 <!-- List of Teams -->
 <div *ngIf="viewMode === 'teams'" class="teams-list mt-4">

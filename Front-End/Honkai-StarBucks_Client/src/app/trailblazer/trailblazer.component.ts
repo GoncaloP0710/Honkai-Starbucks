@@ -20,6 +20,9 @@ export class TrailblazerComponent {
   selectedTrailBlazers: TrailBlazer[] = []; // Add property to store selected trailblazers for the team
   newTeamName: string = ''; // Add property to store the new team name
 
+  uniqueUsernames: string[] = []; // Store unique usernames for the dropdown
+  selectedUsername: string = ''; // Store the currently selected username
+
   constructor(private userService: UserService, private trailblazerService: TrailblazerService) {
     this.trailLBlazers = new Map<string, TrailBlazer>();
     this.username = this.userService.getUsername();
@@ -97,7 +100,23 @@ export class TrailblazerComponent {
   }
 
   filterTrailblazers(): void {
+    // Populate unique usernames
+    this.uniqueUsernames = Array.from(
+      new Set(
+      Array.from(this.trailLBlazers.values()).map((trailBlazer: TrailBlazer) => trailBlazer.username)
+      )
+    );
+  
+    // Filter trailblazers based on the search term and selected username
     this.filteredTrailBlazers = Array.from(this.trailLBlazers.values()).filter(trailBlazer =>
+      trailBlazer.name.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
+      (this.selectedUsername === '' || trailBlazer.username === this.selectedUsername)
+    );
+  }
+
+  filterTrailblazersByUsername(): void {
+    this.filteredTrailBlazers = Array.from(this.trailLBlazers.values()).filter(trailBlazer =>
+      (this.selectedUsername === '' || trailBlazer.username === this.selectedUsername) &&
       trailBlazer.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }

@@ -9,7 +9,7 @@ import tierListData from './tier-list.json'; // Import the JSON file
 export class TierListComponent implements OnInit {
   tiers = ["T0", "T1", "T2", "T3", "T4", "T5"];
   categories = ["Damage Dealer", "Support", "Sustain"];
-  paths = ["Nihility", "Harmony", "Preservation", "Erudition", "Hunt", "Destruction", "Abundance"]; 
+  paths = ["Nihility", "Harmony", "Preservation", "Erudition", "Hunt", "Destruction", "Abundance", "Remembrance"]; 
   elements = ["Fire", "Imaginary", "Quantum", "Wind", "Lightning", "Ice", "Physical"];
   activePaths: string[] = [];
   activeElements: string[] = [];

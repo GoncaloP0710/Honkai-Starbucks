@@ -297,3 +297,26 @@
 .close-button:hover {
   color: red; /* Change color on hover */
 }
+
+.username-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.username-filter {
+  background-color: rgba(40, 40, 56, 1);
+  border: none;
+  color: #ff79c6;
+  padding: 8px;
+  border-radius: 4px;
+  width: 200px;
+  text-align: center;
+}
+
+.username-filter:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #ff79c6;
+}
