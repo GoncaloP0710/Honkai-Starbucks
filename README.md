@@ -7,6 +7,10 @@
 <a href="#installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
 </div>
 
+<img src="README-Files/home.png" alt="plot" width="400"/> <img src="README-Files/tierlist.png" alt="plot" width="400"/>
+
+<img src="README-Files/trailblazers.png" alt="plot" width="400"/> <img src="README-Files/teams.png" alt="plot" width="400"/>
+
 <a id="overview"></a>
 <img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=OVERVIEW" width="450"/>
 
