@@ -2,14 +2,12 @@
 
 <div align="center">
 <a href="#overview"><kbd> <br> Overview<br> </kbd></a>&ensp;&ensp;
-<a href="#tech_used"><kbd> <br>Tech used<br> </kbd></a>&ensp;&ensp;
-<a href="#next_steps"><kbd> <br> Next steps <br> </kbd></a>&ensp;&ensp;
+<a href="#techused"><kbd> <br>Tech used<br> </kbd></a>&ensp;&ensp;
+<a href="#nextsteps"><kbd> <br> Next steps <br> </kbd></a>&ensp;&ensp;
 <a href="#installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
 </div>
 
-<video src="https://github.com/GoncaloP0710/Honkai-Starbucks/blob/main/README-Files/preview.mp4" controls="controls" style="max-width: 100%; height: auto;">
-    Your browser does not support the video tag.
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xN5To6GgqhE" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -41,8 +39,8 @@ This project consists of several components for managing and simulating battles 
 
 ---
 
-<a id="tech_used"></a>
-<img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=TECH USED" width="450"/>
+<a id="techused"></a>
+<img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=TECH-USED" width="450"/>
 
 `MongoDB` is used as the database for storing and managing application data.
 It is a NoSQL database, which makes it suitable for handling flexible and hierarchical data structures.
@@ -67,8 +65,8 @@ The `TrailBlazersServer` uses `StarRail.js` to fetch game-specific data, which i
 
 ---
 
-<a id="next_steps"></a>
-<img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=NEXT STEPS" width="450"/>
+<a id="nextsteps"></a>
+<img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=NEXT-STEPS" width="450"/>
 
 <div align="center">
     <p><strong>PvP:</strong> Face other players by trying to clear MoC faster.</p>
