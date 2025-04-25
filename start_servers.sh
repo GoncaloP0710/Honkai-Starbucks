@@ -13,7 +13,7 @@ echo "Starting TrailBlazersServer..."
 kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_TrailBlazersServer && npm install && node app.js" &
 
 echo "Starting Front-End..."
-kitty --hold zsh -c "cd Front-End/Honkai-StarBucks_Client && npm install && ng serve" &
+kitty --hold zsh -c "cd Front-End/Honkai-StarBucks_Client && npm install --legacy-peer-deps && ng serve" &
 
 echo "Waiting for Front-End to start..."
 
