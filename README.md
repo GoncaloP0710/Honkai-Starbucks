@@ -7,10 +7,6 @@
 <a href="#installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
 </div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xN5To6GgqhE" frameborder="0" allowfullscreen></iframe>
-
----
-
 <a id="overview"></a>
 <img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=OVERVIEW" width="450"/>
 
@@ -33,7 +29,7 @@ This project consists of several components for managing and simulating battles 
 
 `Honkai-StarBucks_BattleServer` - Currently under development, this microservice will encapsulate all battle-related logic. It will be responsible for processing combat mechanics, handling real-time battle scenarios, and ensuring fair and balanced gameplay outcomes. Once implemented, it will form the core gameplay loop of the application.
 
-> [!CAUTION]
+> [!IMPORTANT]
 > Inter-service Communication: Microservices currently communicate using Axios for HTTP-based messaging. 
 > There are plans to upgrade to gRPC, which will provide faster, more efficient communication and better support for future scaling needs. 
 
@@ -80,6 +76,11 @@ The `TrailBlazersServer` uses `StarRail.js` to fetch game-specific data, which i
 
 <a id="installation"></a>
 <img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=INSTALLATION" width="450"/>
+
+> [!CAUTION]
+> You will need to install the necessary modules. 
+> Use ```npm install``` for all the servers.
+> Use ```npm install --legacy-peer-deps``` for the front-end
 
 - Windows
 

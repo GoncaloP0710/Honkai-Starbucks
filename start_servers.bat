@@ -1,19 +1,19 @@
 @echo off
 
 echo Starting BattleServer...
-start cmd /k "cd /d Back-End\Honkai-StarBucks_BattleServer && npm install && node app.js"
+start cmd /k "cd /d Back-End\Honkai-StarBucks_BattleServer && node app.js"
 
 echo Starting LoginServer...
-start cmd /k "cd /d Back-End\Honkai-StarBucks_LoginServer && npm install && node app.js"
+start cmd /k "cd /d Back-End\Honkai-StarBucks_LoginServer && node app.js"
 
 echo Starting MainServer...
-start cmd /k "cd /d Back-End\Honkai-StarBucks_MainServer && npm install && node app.js"
+start cmd /k "cd /d Back-End\Honkai-StarBucks_MainServer && node app.js"
 
 echo Starting TrailBlazersServer...
-start cmd /k "cd /d Back-End\Honkai-StarBucks_TrailBlazersServer && npm install && node app.js"
+start cmd /k "cd /d Back-End\Honkai-StarBucks_TrailBlazersServer && node app.js"
 
 echo Starting Front-End...
-start cmd /k "cd /d Front-End\Honkai-StarBucks_Client && npm install --legacy-peer-deps && ng serve"
+start cmd /k "cd /d Front-End\Honkai-StarBucks_Client && ng serve"
 
 echo Waiting for Front-End to start...
 
