@@ -2,11 +2,14 @@
 
 <div align="center">
 <a href="#overview"><kbd> <br> Overview<br> </kbd></a>&ensp;&ensp;
+<a href="#tech_used"><kbd> <br>Tech used<br> </kbd></a>&ensp;&ensp;
+<a href="#next_steps"><kbd> <br> Next steps <br> </kbd></a>&ensp;&ensp;
 <a href="#installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
-<a href="#next steps"><kbd> <br> Next steps <br> </kbd></a>&ensp;&ensp;
 </div>
 
-<https://github.com/GoncaloP0710/Honkai-Starbucks/README-Files/preview.mp4>
+<video src="https://github.com/GoncaloP0710/Honkai-Starbucks/blob/main/README-Files/preview.mp4" controls="controls" style="max-width: 100%; height: auto;">
+    Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -38,8 +41,20 @@ This project consists of several components for managing and simulating battles 
 
 ---
 
-<a id="tech used"></a>
+<a id="tech_used"></a>
 <img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=TECH USED" width="450"/>
+
+`MongoDB` is used as the database for storing and managing application data.
+It is a NoSQL database, which makes it suitable for handling flexible and hierarchical data structures.
+
+`Node.js` servers handle requests from the front-end and interact with MongoDB to fetch or store data.
+
+`Angular` communicates with the back-end servers via HTTP requests to display data and handle user interactions.
+It provides a framework for creating dynamic, single-page applications (SPAs).
+
+StarRail.js is a library for interacting with Honkai: Star Rail game data.
+It provides APIs or utilities for retrieving game-specific information.
+The `TrailBlazersServer` uses `StarRail.js` to fetch game-specific data, which is then stored in MongoDB or sent directly to the front-end.
 
 <div align="center">
     <ul>
@@ -52,7 +67,7 @@ This project consists of several components for managing and simulating battles 
 
 ---
 
-<a id="next steps"></a>
+<a id="next_steps"></a>
 <img src="https://readme-typing-svg.herokuapp.com?font=Lexend+Giga&size=25&pause=1000&color=CCA9DD&vCenter=true&width=435&height=25&lines=NEXT STEPS" width="450"/>
 
 <div align="center">
