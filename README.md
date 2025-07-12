@@ -28,7 +28,7 @@ This project consists of several components for managing and simulating battles 
 
 `Honkai-StarBucks_MainServer` - This is the entry point of the system. It acts as a central router that handles initial requests from the frontend and delegates them to the appropriate microservices. It helps decouple the frontend from direct dependencies on individual services, promoting scalability and maintainability.
 
-`Honkai-StarBucks_LoginServer` - Responsible for handling user authentication and account-related operations, this service connects to a MongoDB database to store and manage login credentials. Currently, database encryption is pending but planned for future implementation to ensure user data security.
+`Honkai-StarBucks_LoginServer` - Responsible for handling user authentication and account-related operations, this service connects to a MongoDB database to store and manage login credentials.
 
 `Honkai-StarBucks_TrailBlazersServer` - This microservice manages player data and team configurations. It connects to MongoDB to store detailed information about each user’s characters and their team setups. Additionally, it integrates with starrail.js to retrieve game-specific data. It supports features like creating and deleting teams...
 
