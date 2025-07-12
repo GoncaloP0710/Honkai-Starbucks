@@ -1,39 +1,57 @@
+// all formulas are based on the information provided by: https://honkai-star-rail.fandom.com/wiki/Damage
 
-
-function calculateDamage(BaseDMG, CRIT, DMGMultiplier, DEFMultiplier, RESMultiplier, DMGTakenMultiplier, ToughnessMultiplier) {
-    return BaseDMG * DMGMultiplier * CRIT * DEFMultiplier * RESMultiplier * DMGTakenMultiplier * ToughnessMultiplier;
+function calculateFinalDamage(BaseDMG, CritMultiplier, DmgBoostMultiplier, WeakenMultiplier, DefMultiplier, ResMultiplier, DmgMitigationMultiplier, BrokenMultiplier) {
+    return BaseDMG * CritMultiplier * DmgBoostMultiplier * WeakenMultiplier * DefMultiplier * ResMultiplier * VulnerabilityMultiplier * DmgMitigationMultiplier * BrokenMultiplier;
 }
 
-function calculateBaseDMG(scaler, ExtraDMG, SkillMV, ExtraMV) {
-    return scaler * ExtraDMG * (SkillMV + ExtraMV);
+function calculateBaseDMG(abilityMultiplier, stat, extraDmg) {
+    return abilityMultiplier * stat + extraDmg;
 }
 
-function calculateCritDMG(CRITRate, CRITDamage) {
-    return 1 + CRITRate * CRITDamage;
+// Already includes the Crit chance calculation
+function calculateCritMultiplier(CRITRate, CRITDamage) {
+    rnd = Math.random();
+    if (rnd < CRITRate) {
+        return 1 + CRITDamage;
+    }
+    return 1;
 }
 
-// TODO: is DoTDMG correct?
-function calculateDMGBonuses(AllDMG, ElemDMGP, DoTDMG) {
+function calculateDMGBoostMultiplier(AllDmgBoost, ElemDmgMultiplier, DoTDMG) {
     return 1 + AllDMG + ElemDMGP + DoTDMG;
 }
 
-function calculateEnemyDEF(LvlChar, LvlEnemy) {
-    return (LvlChar + 20) / ((LvlChar + 20) + (LvlEnemy + 20));
+function calculateWeakenMultiplier(Weaken) {
+    return 1 - Weaken;
 }
 
-function calculateEnemyRES(RES, RESPen) {
-    return 100 - (RES - RESPen);
+function calculateDefMultiplier(LevelAttacker, LevelEnemy, DefBonus, DefReduction, Defignore) {
+    let defMultiplier = 1 + DefBonus - DefReduction - Defignore;
+    defMultiplier = Math.max(0, defMultiplier);
+    return (LevelAttacker + 20) / ((LevelEnemy + 20) * defMultiplier + LevelAttacker + 20);
 }
 
-function calculateDMGTakenMultiplier(AllDMGTaken, ElemDMGTakenP) {
-    return 1 + ElemDMGTakenP + AllDMGTaken;
+function calculateResistMultiplier(restarget, resPenetration) {
+    return 1 - (restarget - resPenetration);
 }
 
-function calculateToughnessMultiplier(Broken) {
-    if (Broken == true) {
-        return 1;
-    } else {
-        return 0.9;
-    }
+function calculateVulnerabilityMultiplier(elementalVulnerability, allTypeVulnerability, dotVulnerability) {
+    return 1 + elementalVulnerability + allTypeVulnerability + dotVulnerability;
 }
 
+// Needs to be tested 
+function calculateDmgMitigationMultiplier(DmgMitigation) {
+    return DmgMitigation.reduce((dmg, mitigation) => dmg * (1 - mitigation), 1);
+}
+
+function calculateBrokenMultiplier(Broken) {
+    return Broken ? 1 : 0.9;
+}
+
+function calculateBreakDmg() {
+    // TODO: Implement the logic for calculating break damage
+}
+
+function calculateBreakDot() {
+    // TODO: Implement the logic for calculating break DoT
+}
