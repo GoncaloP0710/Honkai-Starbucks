@@ -18,6 +18,9 @@ mongoose.connection.on('error', function(err) {
 const initRouter = require('./routes/init');
 app.use('/init', initRouter);
 
+const damageCalcsRouter = require('./routes/DamageCalcs');
+app.use('/damageCalcs', damageCalcsRouter);
+
 // Start the server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

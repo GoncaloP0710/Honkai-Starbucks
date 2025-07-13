@@ -59,3 +59,18 @@ exports.deleteTeam = asyncHandler(async (req, res, next) => {
         return res.status(500).json({ error: 'Failed to delete team' });
     }
 });
+
+exports.getTeamById = asyncHandler(async (req, res, next) => {
+    const { id } = req.query;
+
+    try {
+        const team = await Team.findById(id).populate('trailBlazers');
+        if (!team) {
+            return res.status(404).json({ error: 'Team not found' });
+        }
+        res.json(team);
+    } catch (error) {
+        console.error('Error getting team by ID:', error);
+        return res.status(500).json({ error: 'Failed to get team by ID' });
+    }
+});

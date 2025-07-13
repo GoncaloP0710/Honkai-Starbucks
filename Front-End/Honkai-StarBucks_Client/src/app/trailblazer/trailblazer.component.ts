@@ -243,7 +243,4 @@ export class TrailblazerComponent {
       trailBlazer.detailsLeft = leftPosition;
     }, 0);
   }
-  
-  
-  
 }

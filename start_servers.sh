@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 echo "Starting BattleServer..."
 kitty --hold zsh -c "cd Back-End/Honkai-StarBucks_BattleServer && node app.js" &
@@ -20,7 +21,7 @@ echo "Waiting for Front-End to start..."
 checkServer() {
     while ! curl -s http://localhost:4200 > /dev/null; do
         echo "Server not ready, checking again..."
-        sleep 2
+        sleep 1
     done
 }
 
@@ -30,4 +31,3 @@ echo "Opening Front-End in the default web browser..."
 xdg-open http://localhost:4200
 
 echo "All servers started."
-```
